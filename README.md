@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# SportConnect
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de uma Aplicação Interativa`
 
-`SEMESTRE`
+`2025/2 - Eixo 2 `
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto consiste no desenvolvimento de um site com o propósito de conectar pessoas interessadas em praticar atividades físicas em grupo. A aplicação permitirá que usuários criem ou participem de eventos de exercícios coletivos, como caminhadas, corridas e treinos funcionais, conforme suas preferências e disponibilidade. A finalidade é promover a prática regular de atividades físicas de forma colaborativa, incentivando a saúde, a motivação e a interação social.
 
 ## Integrantes
 
 * Ayrton Caio Alves Dalcumune
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Igor Roberto de Aguiar
+* Jean Nascimento de Souza
+* Jhony Henrique de Freitas Silva
+* Livia Barboza dos Santos Coimbra
+* Rafael Miury de Souza
 
 ## Orientador
 
-* Nome completo do professor
+* José Wilson da Costa
 
 ## Instruções de Instalação, Execução e Acesso
 
