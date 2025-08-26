@@ -6,7 +6,7 @@
 
 `2025/2 - Eixo 2 `
 
-O projeto consiste no desenvolvimento de um site com o propósito de conectar pessoas interessadas em praticar atividades físicas em grupo. A aplicação permitirá que usuários criem ou participem de eventos de exercícios coletivos, como caminhadas, corridas e treinos funcionais, conforme suas preferências e disponibilidade. A finalidade é promover a prática regular de atividades físicas de forma colaborativa, incentivando a saúde, a motivação e a interação social.
+O projeto consiste no desenvolvimento de um sistema com o propósito de conectar pessoas interessadas em praticar atividades físicas em grupo. O sistema permitirá que usuários criem ou participem de eventos de exercícios coletivos, como caminhadas, corridas e treinos funcionais, conforme suas preferências e disponibilidade. A finalidade é promover a prática regular de atividades físicas de forma colaborativa, incentivando a saúde, a motivação e a interação social.
 
 ## Integrantes
 
