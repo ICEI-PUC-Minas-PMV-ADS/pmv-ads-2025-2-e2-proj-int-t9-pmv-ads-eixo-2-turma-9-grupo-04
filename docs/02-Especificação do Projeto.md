@@ -8,42 +8,37 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Identifique, em torno de, 5 personas. Para cada persona, lembre-se de descrever suas angústicas, frustrações e expectativas de vida relacionadas ao problema. Além disso, defina uma "aparência" para a persona. Para isso, você poderá utilizar sites como [https://this-person-does-not-exist.com/pt#google_vignette](https://this-person-does-not-exist.com/pt) ou https://thispersondoesnotexist.com/ 
+### Persona 1
+<img width="856" height="510" alt="Giovanna Elisa Pereira" src="https://github.com/user-attachments/assets/ad23b670-6a97-4c6c-bb42-f78b250a0fcd" />
 
-Utilize também como referência o exemplo abaixo:
+### Persona 2 
+<img width="856" height="510" alt="Pedro Souza dos Reis" src="https://github.com/user-attachments/assets/003ad835-bee8-4c7b-ba91-9de2bf78ae9f" />
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/IntApplicationProject-Template/blob/main/docs/img/AnaClara1.png" alt="Persona1"/>
+### Persona 3
+<img width="856" height="510" alt="Jorge Henrique Costa" src="https://github.com/user-attachments/assets/e12b74e2-f0d3-4ddf-94f3-b2904bf91d80" />
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+### Persona 4
+<img width="856" height="510" alt="Priscila Martins Oliveira" src="https://github.com/user-attachments/assets/ada623aa-dbc5-49ab-a6a2-15daeffe7beb" />
 
-> **Links Úteis**:
-> 
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+### Persona 5
+<img width="856" height="510" alt="William Porter Ferreira" src="https://github.com/user-attachments/assets/c798befb-d54c-4c60-96b2-982f9521a13e" />
+
+### Persona 6
+<img width="856" height="510" alt="Tereza Castro Rodriguez" src="https://github.com/user-attachments/assets/663734a6-e9be-42e0-90cc-cb9affe61a5e" />
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Ana Clara  | Uma forma de identificar se uma agência é realmente confiável           | Me sentir mais segura ao contratar seus serviços               |
-|Ana Clara       | Ter um mecanismo eficiente e rápido de comunicação                 | Que eu possa sanar todas as minhas dúvidas rapidamente |
+|Giovanna  | Participar de aulas de dança fitness em grupo          |Me exercitar de forma divertida e criar vínculos sociais               |
+|Pedro      | Participar de jogos de futebol com grupos próximos               | Me manter ativo e conhecer novas pessoas |
+|Jorge  | Encontrar grupos que se adaptem ao meu nível e tempo livre          | Aliviar o estresse sem comprometer meu dia          
+|Priscila  |Praticar yoga e meditação em grupo          | Equilibrar mente e corpo, reduzindo o estresse        |
+|William      | Achar amigos para treinar skate e funcionais ao ar livre               | Evoluir nas habilidades e me divertir ||
+|Tereza      | Encontrar caminhadas e atividades leves para minha idade                |Cuidar da saúde, evitar lesões e socializar |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Requisitos
 
