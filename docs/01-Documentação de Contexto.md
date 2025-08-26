@@ -1,13 +1,9 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+De acordo com o Atlas Mundial da Obesidade 2025, estima-se que 68% da população brasileira esteja com excesso de peso, sendo que 31% apresentam obesidade. Além disso, entre 2010 e 2030, a projeção indica um aumento de 115% nos casos de obesidade no Brasil. Da mesma forma, dados do Sistema de Vigilância de Fatores de Risco e Proteção para Doenças Crônicas por Inquérito Telefônico (Vigitel), do Ministério da Saúde, apontam que apenas 40,6% da população pratica algum tipo de atividade física.
 
-## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+Esses números são alarmantes e evidenciam a necessidade de, além de outras medidas, desenvolver ferramentas digitais que contribuam para a redução da obesidade no Brasil, por meio do estímulo à prática regular de atividade física e da prevenção de doenças relacionadas ao sedentarismo.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
