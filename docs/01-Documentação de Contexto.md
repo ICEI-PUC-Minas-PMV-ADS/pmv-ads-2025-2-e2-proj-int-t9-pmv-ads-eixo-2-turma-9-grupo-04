@@ -1,4 +1,4 @@
-# Introdução
+## Introdução
 
 No Brasil, 59,5% dos adultos são fisicamente inativos e 30,1% passam seis horas ou mais por dia em comportamento sedentário (OLIVEIRA et al., 2023). Apesar do aumento da prática de atividade física no lazer, que passou de 30,3% em 2009 para 40,6% em 2023 (VIGITEL, 2023), os índices continuam abaixo do recomendado pela OMS. Nesse cenário, propõe-se a criação de um sistema digital que conecte pessoas interessadas em esportes e exercícios físicos coletivos, possibilitando a formação de grupos e incentivando rotinas mais ativas e saudáveis.
 
