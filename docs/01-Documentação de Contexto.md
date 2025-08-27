@@ -6,7 +6,7 @@ No Brasil, 59,5% dos adultos são fisicamente inativos e 30,1% passam seis horas
 
 De acordo com o Atlas Mundial da Obesidade 2025, estima-se que 68% da população brasileira esteja com excesso de peso, sendo que 31% apresentam obesidade. Além disso, entre 2010 e 2030, a projeção indica um aumento de 115% nos casos de obesidade no Brasil. Da mesma forma, dados do Sistema de Vigilância de Fatores de Risco e Proteção para Doenças Crônicas por Inquérito Telefônico (Vigitel), do Ministério da Saúde, apontam que apenas 40,6% da população pratica algum tipo de atividade física.
 
-Esses números são alarmantes e evidenciam a necessidade de, além de outras medidas, desenvolver ferramentas digitais que contribuam para a redução da obesidade no Brasil, por meio do estímulo à prática regular de atividade física e da prevenção de doenças relacionadas ao sedentarismo.
+Esses números são alarmantes e evidenciam a necessidade de, além de outras medidas, desenvolver aplicações que contribuam para a redução da obesidade no Brasil, por meio do estímulo à prática regular de atividade física e da prevenção de doenças relacionadas ao sedentarismo.
 
 ## Objetivos
 
