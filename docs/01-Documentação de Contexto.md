@@ -8,25 +8,14 @@ De acordo com o Atlas Mundial da Obesidade 2025, estima-se que 68% da populaçã
 
 Esses números são alarmantes e evidenciam a necessidade de, além de outras medidas, desenvolver ferramentas digitais que contribuam para a redução da obesidade no Brasil, por meio do estímulo à prática regular de atividade física e da prevenção de doenças relacionadas ao sedentarismo.
 
-
 ## Objetivos
 
 O projeto tem como objetivo desenvolver um sistema que facilite a criação e a busca por grupos de esportes ou exercícios físicos coletivos. Busca-se reduzir a inatividade, superar barreiras como falta de companhia ou motivação e promover a prática regular de atividades que melhorem a saúde, o bem-estar e a integração social.
+
 ## Justificativa
 
-Explique de forma clara a relevância da aplicação escolhida, justificando os objetivos específicos e os aspectos do software que serão aprofundados, e quantifique o impacto do problema com dados concretos (números, percentuais, indicadores) obtidos por bases oficiais ou outras fontes confiáveis, sempre citadas no padrão ABNT (no formato [Numérico] ou (AUTOR, ANO)).
-
-**Relacione o problema aos Objetivos de Desenvolvimento Sustentável (ODS), indicando quais ODS e subobjetivos são atendidos e descrevendo como o projeto contribui para cada um deles, garantindo coerência entre o impacto mensurado e as metas selecionadas.**
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+O desenvolvimento de uma aplicação voltada ao incentivo da prática de atividades físicas torna-se uma alternativa crucial para contribuir com a redução e a prevenção da obesidade, bem como de outras doenças decorrentes do sedentarismo. Ademais, faz-se necessário facilitar a conexão entre as pessoas por meio do esporte, visto que vivemos em uma era cada vez mais online. Para isso, toma-se como base o Objetivo de Desenvolvimento Sustentável nº 3 da Organização das Nações Unidas, que busca assegurar o acesso à saúde de qualidade e promover o bem-estar.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Esta aplicação é voltada a pessoas acima de 18 anos, com diferentes rotinas e níveis de contato com a tecnologia, que buscam praticar atividades físicas, conhecer novas pessoas e adotar um estilo de vida mais saudável.
