@@ -48,31 +48,27 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve permitir que o usuário avalie uma agência de intercâmbio com base na sua experiência| ALTA | 
-|RF-002| A aplicação deve permitir que o usuário inclua comentários ao fazer uma avaliação de uma agência de intercâmbio    | ALTA |
-|RF-003| A aplicação deve permitir que o usuário consulte todas as agências de intercâmbio cadastradas ordenando-as com base em suas notas | ALTA |
+|RF-01| A aplicação deve permitir o cadastro de usuários | ALTA | 
+|RF-02 | A aplicação deve apresentar uma tela de login, para que os usuários cadastrados possam se identificar e acessar a aplicação    | ALTA |
+|RF-03 | A aplicação deve apresentar uma tela de alteração cadastral de usuários, onde nela será possível a edição de informações fornecidas na etapa de cadastro | MÉDIA |
+|RF-04 | A aplicação deve permitir a exclusão de usuários, para caso algum usuário não queira mais utilizar a aplicação  | MÉDIA |
+|RF-05| A aplicação deve permitir a criação de grupos  | ALTA |
+|RF-06| A aplicação deve permitir a entrada de usuários em grupos  | ALTA |
+|RF-07| A aplicação deve permitir que um grupo tenha um número limite de participantes | BAIXA |
+|RF-08| A aplicação deve permitir que um usuário administrador de um grupo exclua um integrante | MÉDIA |
+|RF-09| A aplicação deve apresentar uma tela de edição de um grupo  | MÉDIA |
+|RF-10| A aplicação deve permitir a exclusão de um grupo | MÉDIA |
+|RF-11| A aplicação deve permitir a pesquisa de grupos, seja por nome ou localidade | MÉDIA |
+|RF-12| A aplicação deve permitir que o usuário saia de um grupo em que ele é participante  | MÉDIA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| A aplicação deve ser responsiva | MÉDIA | 
-|RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|RNF-01| A aplicação deve ser responsiva, sendo possível acessá-la a partir da maioria dos dispositivos disponíveis | ALTA | 
+|RNF-02| A aplicação deve possuir um sistema de autenticação e autorização, a fim de evitar que usuários alterem dados de um grupo onde ele não é administrador |  ALTA | 
+|RNF-03| A aplicação deve possuir integrações com APIs externas  |  BAIXA | 
+|RNF-04| A aplicação deve possuir mensagens de erros e sucessos claras, para assim proporcionar uma melhor experiência de usuário |  BAIXA | 
 
 ## Restrições
 
@@ -80,8 +76,11 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| A primeira etapa do projeto que consiste na documentação e levantamento de requisitos deve ser entregue até o dia 31/08/2025 |
+|02| A segunda etapa do projeto que consiste na criação de wireframes, planos de testes e metodologia deve ser entregue até o dia 28/09/2025        |
+|03| A terceira etapa do projeto que consiste na primeira parte do desenvolvimento da solução deve ser entregue até o dia 26/10/2025        |
+|04| A quarta etapa do projeto que consiste na segunda parte do desenvolvimento da solução deve ser entregue até o dia 23/11/2025        |
+|05| A quinta etapa do projeto que consiste na entrega da solução e dos relatórios de testes deve ser entregue até o dia 07/12/2025        |
 
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
