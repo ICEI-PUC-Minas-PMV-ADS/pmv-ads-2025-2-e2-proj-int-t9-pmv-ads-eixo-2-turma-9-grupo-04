@@ -1,12 +1,6 @@
 # Introdução
 
-Falta fazer
-
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+No Brasil, 59,5% dos adultos são fisicamente inativos e 30,1% passam seis horas ou mais por dia em comportamento sedentário (OLIVEIRA et al., 2023). Apesar do aumento da prática de atividade física no lazer, que passou de 30,3% em 2009 para 40,6% em 2023 (VIGITEL, 2023), os índices continuam abaixo do recomendado pela OMS. Nesse cenário, propõe-se a criação de um sistema digital que conecte pessoas interessadas em esportes e exercícios físicos coletivos, possibilitando a formação de grupos e incentivando rotinas mais ativas e saudáveis.
 
 ## Problema
 
@@ -17,13 +11,7 @@ Esses números são alarmantes e evidenciam a necessidade de, além de outras me
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
+O projeto tem como objetivo desenvolver um sistema que facilite a criação e a busca por grupos de esportes ou exercícios físicos coletivos. Busca-se reduzir a inatividade, superar barreiras como falta de companhia ou motivação e promover a prática regular de atividades que melhorem a saúde, o bem-estar e a integração social.
 ## Justificativa
 
 Explique de forma clara a relevância da aplicação escolhida, justificando os objetivos específicos e os aspectos do software que serão aprofundados, e quantifique o impacto do problema com dados concretos (números, percentuais, indicadores) obtidos por bases oficiais ou outras fontes confiáveis, sempre citadas no padrão ABNT (no formato [Numérico] ou (AUTOR, ANO)).
