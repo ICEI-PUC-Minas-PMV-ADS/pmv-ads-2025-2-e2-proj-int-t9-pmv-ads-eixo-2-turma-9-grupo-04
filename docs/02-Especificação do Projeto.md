@@ -1,3 +1,4 @@
+https://github.com/user-attachments/assets/cdd32c84-e8bd-412d-81b6-e91ef6e3ec0c
 # Especificações do Projeto
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
