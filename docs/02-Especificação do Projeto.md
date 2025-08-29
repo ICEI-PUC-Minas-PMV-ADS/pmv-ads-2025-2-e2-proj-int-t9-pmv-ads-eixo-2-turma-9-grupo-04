@@ -1,6 +1,3 @@
-
-https://github.com/user-attachments/assets/d8b0c424-748c-4ad3-a415-d52c8d043d3c
-
 # Especificações do Projeto
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
@@ -11,6 +8,7 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Apresentação do Projeto
 
+https://github.com/user-attachments/assets/d8b0c424-748c-4ad3-a415-d52c8d043d3c
 
 ## Personas
 
