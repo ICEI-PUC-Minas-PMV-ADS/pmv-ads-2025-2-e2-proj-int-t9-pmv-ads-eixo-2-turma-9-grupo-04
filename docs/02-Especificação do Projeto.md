@@ -85,7 +85,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o fim do semestre, respeitando o cronograma estabelecido |
 |02| O front-end da aplicação deverá ser desenvolvido utilizando HTML, CSS e Javascript        |
 |03| A linguagem que deve ser utilizada na construção do back-end deverá ser o C#      |
-|04| A aplicação deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil, garantindo a segurança e privacidade dos dados dos usuários.       |
+|04| A aplicação deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil, garantindo a segurança e privacidade dos dados dos usuários       |
 
 ## Diagrama de Casos de Uso
 <img alt="Diagrama de Casos de Uso" src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04/blob/c870d3724f6920e322c2ad22ddd2da5783556eb7/docs/img/DiagramaDeCasosDeUso.png"/>
