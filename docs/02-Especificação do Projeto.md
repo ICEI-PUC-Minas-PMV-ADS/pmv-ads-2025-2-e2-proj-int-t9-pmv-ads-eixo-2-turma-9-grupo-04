@@ -54,25 +54,25 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01| A aplicação deve permitir o cadastro de usuários | ALTA | 
-|RF-02 | A aplicação deve apresentar uma tela de login, para que os usuários cadastrados possam se identificar e acessar a aplicação    | ALTA |
-|RF-03 | A aplicação deve apresentar uma tela de alteração cadastral de usuários, onde nela será possível a edição de informações fornecidas na etapa de cadastro | MÉDIA |
-|RF-04 | A aplicação deve permitir a exclusão de usuários, para caso algum usuário não queira mais utilizar a aplicação  | MÉDIA |
-|RF-05| A aplicação deve permitir a criação de grupos  | ALTA |
-|RF-06| A aplicação deve permitir a entrada de usuários em grupos  | ALTA |
-|RF-07| A aplicação deve permitir que um grupo tenha um número limite de participantes | BAIXA |
-|RF-08| A aplicação deve permitir que um usuário administrador de um grupo exclua um integrante | MÉDIA |
-|RF-09| A aplicação deve apresentar uma tela de edição de um grupo  | MÉDIA |
-|RF-10| A aplicação deve permitir a exclusão de um grupo | MÉDIA |
-|RF-11| A aplicação deve permitir a pesquisa de grupos, seja por nome ou localidade | MÉDIA |
-|RF-12| A aplicação deve permitir que o usuário saia de um grupo em que ele é participante  | MÉDIA |
+|RF-01| A aplicação deve permitir o cadastro de usuários (CRUD) | ALTA | 
+|RF-02 | A aplicação deve permitir o login de usuários, para assim ser possível o acesso ao sistema     | ALTA |
+|RF-03 | A aplicação deve permitir a criação de grupos (CRUD) | ALTA |
+|RF-04 | A aplicação deve permitir a entrada de usuários em grupos   | ALTA |
+|RF-05| A aplicação deve permitir a pesquisa de grupos, seja por nome, localidade ou modalidade | MÉDIA |
+|RF-06| A aplicação deve permitir que o usuário saia de um grupo em que ele é participante | MÉDIA |
+|RF-07| A aplicação deve permitir que o usuário administrador de um grupo cadastre uma atividade no grupo em que ele gere | ALTA |
+|RF-08| A aplicação deve permitir que o usuário receba notificações sobre novas atividades adicionadas aos grupos onde o mesmo participa | BAIXA |
+|RF-09| A aplicação deve permitir que o usuário consulte todos os grupos em que ele participa   | BAIXA |
+|RF-10| A aplicação deve permitir que o usuário consulte todos os grupos que ele é administrador  | BAIXA |
+|RF-11| A aplicação deve permitir que o usuário entre em uma lista de espera caso o grupo atinja sua capacidade máxima e o administrador tenha habilitado essa opção  | BAIXA |
+|RF-12| A aplicação deve permitir que o administrador de um grupo faça o download de um PDF contendo todos os participantes do grupo em que o mesmo gere  | BAIXA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
 |RNF-01| A aplicação deve ser responsiva, sendo possível acessá-la a partir da maioria dos dispositivos disponíveis | ALTA | 
-|RNF-02| A aplicação deve possuir um sistema de autenticação e autorização, a fim de evitar que usuários alterem dados de um grupo onde ele não é administrador |  ALTA | 
+|RNF-02| A aplicação deve possuir um sistema de autenticação e autorização, a fim de evitar acesso de usuários não autorizados |  ALTA | 
 |RNF-03| A aplicação deve possuir integrações com APIs externas  |  BAIXA | 
 |RNF-04| A aplicação deve possuir mensagens de erros e sucessos claras, para assim proporcionar uma melhor experiência de usuário |  BAIXA | 
 
@@ -82,18 +82,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| A primeira etapa do projeto que consiste na documentação e levantamento de requisitos deve ser entregue até o dia 31/08/2025 |
-|02| A segunda etapa do projeto que consiste na criação de wireframes, planos de testes e metodologia deve ser entregue até o dia 28/09/2025        |
-|03| A terceira etapa do projeto que consiste na primeira parte do desenvolvimento da solução deve ser entregue até o dia 26/10/2025        |
-|04| A quarta etapa do projeto que consiste na segunda parte do desenvolvimento da solução deve ser entregue até o dia 23/11/2025        |
-|05| A quinta etapa do projeto que consiste na entrega da solução e dos relatórios de testes deve ser entregue até o dia 07/12/2025        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|01| O projeto deverá ser entregue até o fim do semestre, respeitando o cronograma estabelecido |
+|02| O front-end da aplicação deverá ser desenvolvido utilizando HTML, CSS e Javascript        |
+|03| A linguagem que deve ser utilizada na construção do back-end deverá ser o C#      |
+|04| A aplicação deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil, garantindo a segurança e privacidade dos dados dos usuários.       |
 
 ## Diagrama de Casos de Uso
 <img alt="Diagrama de Casos de Uso" src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04/blob/c870d3724f6920e322c2ad22ddd2da5783556eb7/docs/img/DiagramaDeCasosDeUso.png"/>
