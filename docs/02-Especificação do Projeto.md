@@ -61,7 +61,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-07| A aplicação deve permitir que o usuário administrador de um grupo cadastre uma atividade no grupo em que ele gere | ALTA |
 |RF-08| A aplicação deve permitir que o usuário receba notificações sobre novas atividades adicionadas aos grupos onde o mesmo participa | BAIXA |
 |RF-09| A aplicação deve permitir que o usuário consulte todos os grupos em que ele participa   | BAIXA |
-|RF-10| A aplicação deve permitir que o usuário consulte todos os grupos que ele é administrador  | BAIXA |
+|RF-10| A aplicação deve permitir que o usuário consulte todos os grupos em que ele é administrador  | BAIXA |
 |RF-11| A aplicação deve permitir que o usuário entre em uma lista de espera caso o grupo atinja sua capacidade máxima e o administrador tenha habilitado essa opção  | BAIXA |
 |RF-12| A aplicação deve permitir que o administrador de um grupo faça o download de um PDF contendo todos os participantes do grupo em que o mesmo gere  | BAIXA |
 
