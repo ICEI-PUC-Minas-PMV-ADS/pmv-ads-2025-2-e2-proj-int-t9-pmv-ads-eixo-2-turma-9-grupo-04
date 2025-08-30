@@ -8,6 +8,10 @@ De acordo com o Atlas Mundial da Obesidade 2025, estima-se que 68% da populaçã
 
 Esses números são alarmantes e evidenciam a necessidade de, além de outras medidas, desenvolver aplicações que contribuam para a redução da obesidade no Brasil, por meio do estímulo à prática regular de atividade física e da prevenção de doenças relacionadas ao sedentarismo.
 
+## Proposta de solução
+
+Propõe-se o desenvolvimento de uma plataforma digital que conecte pessoas a grupos de esportes, danças e atividades físicas em sua região, contemplando iniciativas públicas e privadas. A prática regular de exercícios contribui para a melhora da saúde mental, da qualidade do sono e para a redução do risco de doenças crônicas (OMS, 2020). Além disso, atividades coletivas fortalecem a socialização e o bem-estar, especialmente em comunidades (SOARES, 2022). Dessa forma, a proposta se alinha diretamente ao ODS 3 – Saúde e Bem-Estar, ao incentivar hábitos saudáveis e ampliar o acesso a práticas físicas (ONU, 2021).
+
 ## Objetivos
 
 O projeto tem como objetivo desenvolver um sistema que facilite a criação e a busca por grupos de esportes ou exercícios físicos coletivos. Busca-se reduzir a inatividade, superar barreiras como falta de companhia ou motivação e promover a prática regular de atividades que melhorem a saúde, o bem-estar e a integração social.
