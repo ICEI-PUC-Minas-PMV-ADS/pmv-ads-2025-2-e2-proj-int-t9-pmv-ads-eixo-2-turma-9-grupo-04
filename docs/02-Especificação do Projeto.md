@@ -86,7 +86,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |04| A aplicação deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil, garantindo a segurança e privacidade dos dados dos usuários       |
 
 ## Diagrama de Casos de Uso
-<img alt="Diagrama de Casos de Uso" src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04/blob/c870d3724f6920e322c2ad22ddd2da5783556eb7/docs/img/DiagramaDeCasosDeUso.png"/>
+<img alt="Diagrama de Casos de Uso" src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04/blob/9615d78cc626bf58c89067bfbe2053470a725bc7/docs/img/DiagramUC.png"/>
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
