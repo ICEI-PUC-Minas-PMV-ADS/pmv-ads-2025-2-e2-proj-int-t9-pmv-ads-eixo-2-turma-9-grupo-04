@@ -1,4 +1,4 @@
-# Plano de Teste de Usabilidade - Aplicativo de Encontro para Prática de Esportes
+# Plano de Teste de Usabilidade - SportConnect
 
 ## Introdução
 O objetivo deste plano é avaliar a usabilidade da aplicação de encontro de pessoas para praticar esportes, garantindo que os usuários consigam interagir de maneira intuitiva e eficiente com o sistema para encontrar parceiros, organizar atividades e gerenciar eventos esportivos.
