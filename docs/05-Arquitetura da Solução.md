@@ -25,7 +25,8 @@ A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
 
 ## Projeto da Base de Dados
 
-<img width="1320" height="835" alt="ProjetoBaseDeDados" src="https://github.com/user-attachments/assets/fb823256-c19b-4de0-9f76-0293e2b7caf0" />
+<img width="1241" height="488" alt="image" src="https://github.com/user-attachments/assets/a86e6b35-1d66-40fd-8722-fa46073a7466" />
+
 
 
 ## Tecnologias Utilizadas
