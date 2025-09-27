@@ -77,9 +77,9 @@ Semanalmente a equipe realizou revisões para avaliar os resultados obtidos, aju
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+- Editor de código: VS Code
+- Ferramentas de comunicação: WhatsApp e Microsoft Teams 
+- Ferramentas de desenho de tela (_wireframing_): Figma, Miro e Lucidchart
 
 O editor de código foi escolhido porque ele possui uma integração com o
 sistema de versão. As ferramentas de comunicação utilizadas possuem
