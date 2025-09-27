@@ -3,7 +3,11 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+O desenvolvimento do projeto SportConnect foi realizado de forma colaborativa por uma equipe de cinco integrantes, com foco em organização e comunicação contínua. As reuniões foram conduzidas pelo Microsoft Teams, enquanto o WhatsApp foi utilizado para trocas rápidas de informações e compartilhamento de documentos.
+
+Na etapa de planejamento, utilizamos o Figma para criar os wireframes da interface e as ferramentas Miro e Lucidchart para elaborar os diagramas e estruturar o sistema. O Git foi adotado como sistema de controle de versão e o GitHub como repositório para armazenamento e colaboração entre os membros.
+
+O ambiente escolhido para a codificação foi o Visual Studio Code (VS Code), que será integrado ao GitHub. Essa metodologia garantiu um processo organizado, colaborativo e flexível desde o planejamento até o início do desenvolvimento.
 
 ## Controle de Versão
 
