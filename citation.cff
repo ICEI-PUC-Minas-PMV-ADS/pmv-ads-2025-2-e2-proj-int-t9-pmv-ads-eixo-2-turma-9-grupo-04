@@ -1,29 +1,24 @@
 message: Please cite this software using these metadata.
-title:
+title: SportConnect
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Caio Alves Dalcumune
+    given-names: Ayrton
+  - family-names: Roberto de Aguiar
+    given-names: Igor
+  - family-names: Nascimento de Souza
+    given-names: Jean
+  - family-names: Barboza dos Santos Coimbra
+    given-names: Livia
+  - family-names: Miury de Souza
+    given-names: Rafael
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Wilson da Costa
+    given-names: José
 keywords:
-  - 
-  - 
-repository-code: 
+  - Esportes
+  - Grupos
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect
 version: 1.0.0
-date-released: 2023-10-31
+
+date-released: 2025-12-07
