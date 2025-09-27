@@ -13,7 +13,6 @@ O projeto consiste no desenvolvimento de um sistema com o propósito de conectar
 * Ayrton Caio Alves Dalcumune
 * Igor Roberto de Aguiar
 * Jean Nascimento de Souza
-* Jhony Henrique de Freitas Silva
 * Livia Barboza dos Santos Coimbra
 * Rafael Miury de Souza
 
