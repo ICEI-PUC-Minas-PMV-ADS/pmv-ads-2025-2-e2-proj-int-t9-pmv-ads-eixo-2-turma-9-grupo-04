@@ -22,6 +22,8 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 
+![Preview Wireframe](https://github.com/user-attachments/assets/577dc8ff-8448-434b-806a-f995cd5f944a)
+
 O wireframe interativo da aplicação pode ser acessado a partir do link: https://www.figma.com/design/YKrivAy4GaZNrTh4zuoa4Z/Wireframe-SportConnect?node-id=0-1&t=jwojdWUehsDfs8tJ-0
 
 Para conseguir interagir clique no sinal de play na parte superior estando logado em uma conta.
