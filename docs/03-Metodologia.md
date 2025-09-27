@@ -43,7 +43,16 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
+A equipe do projeto SportConnect adotou a metodologia Scrum para organizar as etapas de desenvolvimento e dividir as responsabilidades de forma clara entre os membros. Os papéis foram definidos da seguinte maneira:
+
+Rafael Miury - Product Owner
+Responsável por definir a visão do produto, priorizar o backlog e garantir que o projeto atenda às necessidades do usuário e aos objetivos definidos.
+
+Ayrton Caio - Scrum Master
+Responsável por orientar a equipe no uso correto do Scrum, remover impedimentos e assegurar que o fluxo de trabalho seja contínuo e eficiente.
+
+Igor Roberto, Jean Nascimento e Livia Barboza - Desenvolvedores 
+Responsável pela implementação das funcionalidades, elaboração dos diagramas, prototipação da interface e codificação do sistema.
 
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
