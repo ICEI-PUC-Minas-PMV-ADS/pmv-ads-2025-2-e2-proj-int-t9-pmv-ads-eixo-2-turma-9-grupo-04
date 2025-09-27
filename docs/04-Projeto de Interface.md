@@ -14,8 +14,6 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 O Diagrama de Fluxo pode ser acessado através do link: https://miro.com/app/board/uXjVJL8C_Eg=/?share_link_id=755465304595
 
 
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
-
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
 > **Links Úteis**:
