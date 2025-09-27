@@ -61,7 +61,11 @@ Responsável pela implementação das funcionalidades, elaboração dos diagrama
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+A equipe seguiu a metodologia Scrum para organizar e acompanhar o desenvolvimento da aplicação. O trabalho foi dividido em sprints com objetivos específicos definidos no início de cada etapa. Em cada sprint, foram planejadas as tarefas prioritárias a serem executadas, sempre alinhadas ao backlog do produto.
+
+As reuniões de planejamento e acompanhamento foram realizadas pelo Microsoft Teams, e o progresso das atividades foi monitorado utilizando ferramentas como GitHub, PowerPoint e Excel, que auxiliaram na organização das tarefas e no controle do andamento do projeto. A comunicação contínua pelo WhatsApp garantiu agilidade nas tomadas de decisão e resolução de problemas.
+
+Semanalmente a equipe realizou revisões para avaliar os resultados obtidos, ajustar prioridades e planejar as próximas entregas. Esse processo cíclico permitiu uma evolução contínua do projeto, garantindo entregas parciais funcionais e facilitando melhorias ao longo do desenvolvimento.
  
 > **Links Úteis**:
 > - [Project management, made simple](https://github.com/features/project-management/)
