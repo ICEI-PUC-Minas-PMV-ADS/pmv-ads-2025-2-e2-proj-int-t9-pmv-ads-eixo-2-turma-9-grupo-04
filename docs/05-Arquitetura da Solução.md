@@ -10,13 +10,9 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Modelo ER (Projeto Conceitual)
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
+![Image](https://github.com/user-attachments/assets/e4e0b307-089d-4cad-a727-301ca63abf20)
 
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
-
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+O modelo ER também pode ser acessado a partir do link: https://miro.com/app/board/uXjVJFEd9k4=/
 
 ## Projeto da Base de Dados
 
