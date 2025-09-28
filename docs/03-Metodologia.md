@@ -77,7 +77,7 @@ Semanalmente a equipe realizou revisões para avaliar os resultados obtidos, aju
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código: VS Code
+- Editor de código: Visual Studio 2022
 - Ferramentas de comunicação: WhatsApp e Microsoft Teams 
 - Ferramentas de desenho de tela (_wireframing_): Figma, Miro e Lucidchart
 
