@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\sportconnect\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\sportconnect\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\sportconnect\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\sportconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\sportconnect\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "SportConnect\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "SportConnect\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T02:15:52.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\appsettings.json",
+              "RelativeDocumentMoniker": "SportConnect\\appsettings.json",
+              "ToolTip": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\appsettings.json",
+              "RelativeToolTip": "SportConnect\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-08T02:12:50.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Program.cs",
+              "RelativeDocumentMoniker": "SportConnect\\Program.cs",
+              "ToolTip": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Program.cs",
+              "RelativeToolTip": "SportConnect\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T02:12:49.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "SportConnect\\Models\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "SportConnect\\Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T02:08:20.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "SportConnect\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\Models\\Usuario.cs",
+              "RelativeToolTip": "SportConnect\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T02:02:26.65Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
