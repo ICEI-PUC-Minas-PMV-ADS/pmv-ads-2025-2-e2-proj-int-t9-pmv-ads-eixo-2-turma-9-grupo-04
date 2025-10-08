@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\Migrations\\20251008033916_database-02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SportConnect\\Migrations\\20251008033916_database-02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\Migrations\\20251008033826_database-01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SportConnect\\Migrations\\20251008033826_database-01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\migrations\\20251008033916_database-02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\migrations\\20251008033916_database-02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +27,8 @@
       "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|c:\\users\\ayrton\\desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-sportconnect\\src\\sportconnect\\migrations\\20251008033826_database-01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C03230-BDE0-41F1-8E3B-AACD78DFC4E5}|SportConnect\\SportConnect.csproj|solutionrelative:sportconnect\\migrations\\20251008033826_database-01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "20251008033916_database-02.cs",
               "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\Migrations\\20251008033916_database-02.cs",
               "RelativeDocumentMoniker": "SportConnect\\Migrations\\20251008033916_database-02.cs",
@@ -59,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\appsettings.json",
               "RelativeDocumentMoniker": "SportConnect\\appsettings.json",
@@ -72,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "20251008033826_database-01.cs",
               "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\Migrations\\20251008033826_database-01.cs",
               "RelativeDocumentMoniker": "SportConnect\\Migrations\\20251008033826_database-01.cs",
@@ -80,8 +80,7 @@
               "RelativeToolTip": "SportConnect\\Migrations\\20251008033826_database-01.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T03:38:26.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T03:38:26.61Z"
             },
             {
               "$type": "Document",
@@ -93,8 +92,7 @@
               "RelativeToolTip": "SportConnect\\Controllers\\UsuariosController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T02:26:08.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T02:26:08.993Z"
             },
             {
               "$type": "Document",
@@ -106,8 +104,7 @@
               "RelativeToolTip": "SportConnect\\Models\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T02:25:57.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T02:25:57.94Z"
             },
             {
               "$type": "Document",
@@ -119,12 +116,11 @@
               "RelativeToolTip": "SportConnect\\Models\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T02:25:53.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T02:25:53.615Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "SportConnect\\Views\\_ViewStart.cshtml",
