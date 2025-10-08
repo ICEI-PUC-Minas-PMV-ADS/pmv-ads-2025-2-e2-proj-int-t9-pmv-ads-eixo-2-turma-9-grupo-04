@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1wkvirFXmsU=",
+  "dgSpecHash": "N4Z1KpKrsII=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\SportConnect.csproj",
+  "projectFilePath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ayrton\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Ayrton\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -169,9 +169,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "O pacote 'BCrypt 1.0.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net8.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
-      "projectPath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\SportConnect.csproj",
+      "projectPath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect\\SportConnect.csproj",
+      "filePath": "C:\\Users\\Ayrton\\Desktop\\sportconnect\\pmv-ads-2025-2-e2-proj-int-t9-pmv-ads-eixo-2-turma-9-grupo-04-SportConnect\\src\\SportConnect\\SportConnect.csproj",
       "libraryId": "BCrypt",
       "targetGraphs": [
         "net8.0"
