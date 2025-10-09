@@ -29,11 +29,20 @@ namespace SportConnect.Controllers
                     return NotFound();
                 }
 
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                _context.Usuarios.Add(usuario);
-                await _context.SaveChangesAsync();
+                var dados = _context.Usuarios.FirstOrDefault(c => c.Email == usuario.Email || c.Cpf == usuario.Cpf);
 
-                return RedirectToAction("Index", "Home");
+                if(dados == null)
+                {
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    _context.Usuarios.Add(usuario);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Message = "Email e/ou CPF já estão cadastrados";
+                }
             }
 
             return View();
@@ -63,34 +72,29 @@ namespace SportConnect.Controllers
 
             if (senhaOk)
             {
-                if (senhaOk)
-                {
-                    var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, dados.Nome),
-                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
-                };
-
-                    var usuarioIdentify = new ClaimsIdentity(claims, "login");
-                    ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentify);
-
-                    var props = new AuthenticationProperties
+                var claims = new List<Claim>
                     {
-                        AllowRefresh = true,
-                        ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),
-                        IsPersistent = true
+                        new Claim(ClaimTypes.Name, dados.Nome),
+                        new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
                     };
 
-                    await HttpContext.SignInAsync(principal, props);
+                var usuarioIdentify = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentify);
 
-                    return Redirect("/");
-                }
-                else
+                var props = new AuthenticationProperties
                 {
-                    ViewBag.Message = "Usuário e/ou senha inválidos!";
-                }
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),
+                    IsPersistent = true
+                };
 
+                await HttpContext.SignInAsync(principal, props);
+                
                 return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Message = "Email e/ou senha inválidos!";
             }
 
             return View();
