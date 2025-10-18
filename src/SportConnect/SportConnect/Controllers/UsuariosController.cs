@@ -34,14 +34,15 @@ namespace SportConnect.Controllers
                 if(dados == null)
                 {
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.Cpf = usuario.Cpf.Replace(".", "").Replace("-", "");
                     _context.Usuarios.Add(usuario);
                     await _context.SaveChangesAsync();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login");
                 }
                 else
                 {
-                    ViewBag.Message = "Email e/ou CPF já estão cadastrados";
+                    ViewBag.Message = "Conta já cadastrada!";
                 }
             }
 
@@ -65,7 +66,8 @@ namespace SportConnect.Controllers
 
             if(dados == null)
             {
-                return NotFound();
+                ViewBag.Message = "Dados incorretos!";
+                return View();
             }
 
             var senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, dados.Senha);
@@ -94,7 +96,7 @@ namespace SportConnect.Controllers
             }
             else
             {
-                ViewBag.Message = "Email e/ou senha inválidos!";
+                ViewBag.Message = "Dados incorretos!";
             }
 
             return View();

@@ -4,40 +4,40 @@
     ViewData["Title"] = "Cadastrar";
 }
 
-<h1>Cadastrar</h1>
-
-<h4>Usuario</h4>
-<div>
-    <div class="col-md-4">
+<div style="background-color: #cccccc; min-height: 100%; display: flex; justify-content: center; align-items: center;">
+    <div class="col-md-4" style="background-color: white; width: 500px; padding: 20px 40px 20px 40px; border-radius: 20px; margin: 80px 0px 80px 0px">
+        <h1 style="text-align: center; font-size: 35px; margin-bottom: 30px; margin-top: 20px;">Cadastrar</h1>
         @if (ViewData["Message"] != null)
         {
-            <p class="text-danger">@ViewData["Message"]</p>
+            <p style="text-align: center" class="text-danger">@ViewData["Message"]</p>
         }
-        <form asp-action="Cadastrar">
+        <form onsubmit="validateForm(event)" asp-action="Cadastrar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin: 20px 0px 20px 0px">
                 <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
+                <input id="cpfInput" oninput="cpfMask(event)" asp-for="Cpf" class="form-control" />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
+                <span id="cpfError" class="visually-hidden text-danger">Cpf inválido!</span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input id="emailInput" asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
+                <span id="emailError" class="visually-hidden text-danger">Email inválido!</span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin: 20px 0px 20px 0px">
                 <label asp-for="DataDeNascimento" class="control-label"></label>
                 <input asp-for="DataDeNascimento" class="form-control" />
                 <span asp-validation-for="DataDeNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
-                <select asp-for="Estado" class="form-control" id="estado">
+                <select onchange="getCidades()" asp-for="Estado" class="form-control" id="estado">
                     <option selected disabled hidden>Selecione um estado</option>
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
@@ -69,20 +69,38 @@
                 </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin: 20px 0px 20px 0px">
                 <label asp-for="Cidade" class="control-label"></label>
-                <select asp-for="Cidade" class="form-control" disabled id="cidade">
-                    <option selected value="">Selecione uma cidade</option>
+                <select asp-for="Cidade" class="form-control" id="cidade">
+                    <option disabled hidden selected value="">Selecione uma cidade</option>
                 </select>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="position: relative">
+                <div class="eyeDiv" onclick="handlePassword(event)" style="position: absolute; right: 0px; top: 25px; cursor: pointer; height: 37px; display: flex; align-items: center; padding-right: 15px">
+                    <i class="eye fa-solid fa-eye"></i>
+                </div>
                 <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
+                <input id="password" asp-for="Senha" class="inputPassword form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
+                <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            <div class="form-group" style="margin-top: 20px; position: relative">
+                <div onclick="handlePassword(event)" class="eyeDiv" style="position: absolute; right: 0px; top: 25px; cursor: pointer; height: 37px; display: flex; align-items: center; padding-right: 15px">
+                    <i class="eye fa-solid fa-eye"></i>
+                </div>
+                <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
+                <input type="password" id="confirmPassword" class="inputPassword form-control" />
+                <span id="confirmPasswordError" class="visually-hidden text-danger">Confirme a senha!</span>
+                <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
+            </div>
+            <div class="form-group text-center" style="margin-top: 25px; margin-bottom: 15px">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" style="border-radius: 10px; font-size: 18px; font-weight: 600; padding: 8px 50px 8px 50px" />
+
+                <div style="margin-top: 20px">
+                    <p class="m-0 text-center">Já possui uma conta?</p>
+                    <a asp-controller="Usuarios" asp-action="Login" class="m-0 text-center" style="color: #2081F9; cursor: pointer; text-decoration: none">Faça o login!</a>
+                </div>
             </div>
         </form>
     </div>
@@ -90,21 +108,116 @@
 
 <script>
     const estado = document.getElementById("estado")
-    const cidade = document.getElementById("cidade")
 
-    estado.addEventListener("change", async () => {
-        const result = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`)
-        const output = await result.json()
+    window.onload = async () => {
+        estado.value = "Selecione um estado"
+    }
 
-        var cidadesHtml
+    const getCidades = async () => {
+        if(estado.value != "Selecione um estado"){
+            const result = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`)
+            const output = await result.json()
 
-        output.forEach((element) => {
-            cidadesHtml += `<option value="${element.nome}">${element.nome}</option>`
-        })
+            const cidade = document.getElementById("cidade")
+            var cidadesHtml
 
-        cidade.innerHTML = cidadesHtml
-        cidade.disabled = false
-    })
+            output.forEach((element) => {
+                cidadesHtml += `<option value="${element.nome}">${element.nome}</option>`
+            })
+
+            cidade.innerHTML = cidadesHtml
+        }
+    }
+
+    const handlePassword = (e) => {
+        const eyesDiv = document.getElementsByClassName("eyeDiv")
+        const eyes = document.getElementsByClassName("eye")
+        const inputPassword = document.getElementsByClassName("inputPassword")
+
+        if([...eyesDiv].indexOf(e.target) != -1){
+            if(inputPassword[[...eyesDiv].indexOf(e.target)].type == "password"){
+                inputPassword[[...eyesDiv].indexOf(e.target)].type = "text"
+            }
+            else{
+                inputPassword[[...eyesDiv].indexOf(e.target)].type = "password"
+            }
+        }
+        else if([...eyes].indexOf(e.target) != -1){
+            if(inputPassword[[...eyes].indexOf(e.target)].type == "password"){
+                inputPassword[[...eyes].indexOf(e.target)].type = "text"
+            }
+            else{
+                inputPassword[[...eyes].indexOf(e.target)].type = "password"
+            }
+        }
+    }
+
+    const cpfMask = (v) => {
+        if(v.target.value.length < 15){
+            v.target.value = v.target.value.replace(/\D/g,"")
+            v.target.value = v.target.value.replace(/(\d{3})(\d)/,"$1.$2")
+            v.target.value = v.target.value.replace(/(\d{3})(\d)/,"$1.$2")
+            v.target.value = v.target.value.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+        }
+        else{
+            v.target.value = v.target.value.slice(0, -1)
+        }
+    }
+
+    const emailMask = (email) => {
+        const regex = /.+@@.+\.[A-Za-z]+$/
+
+        if(regex.test(email)){
+            return true
+        }
+
+        else{
+            return false
+        }
+    }
+
+    const validateForm = (e) => {
+        const confirmPassword = document.getElementById("confirmPassword").value
+        const email = document.getElementById("emailInput").value
+        const password = document.getElementById("password").value
+        const cpf = document.getElementById("cpfInput").value
+
+        const emailError = document.getElementById("emailError")
+        const cpfError = document.getElementById("cpfError")
+        const confirmPasswordError = document.getElementById("confirmPasswordError")
+        const equalError = document.getElementsByClassName("equalError")
+
+        for(let i = 0; i < equalError.length; i++){
+            equalError[i].classList.add("visually-hidden")
+        }
+
+        cpfError.classList.add("visually-hidden")
+        confirmPasswordError.classList.add("visually-hidden")
+        emailError.classList.add("visually-hidden")
+
+        if(confirmPassword == ""){
+            e.preventDefault()
+            confirmPasswordError.classList.remove("visually-hidden")
+        }
+
+        if(emailMask(email) == false && email != ""){
+            e.preventDefault()
+            emailError.classList.remove("visually-hidden")
+        }
+
+        if(password != confirmPassword && password != "" && confirmPassword != ""){
+            e.preventDefault()
+
+            for(let i = 0; i < equalError.length; i++){
+                equalError[i].classList.remove("visually-hidden")
+            }
+        }
+
+        if(cpf.length < 14 && cpf != ""){
+            e.preventDefault()
+            cpfError.classList.remove("visually-hidden")
+        }
+    }
 </script>
 
 @section Scripts {
