@@ -1,0 +1,101 @@
+﻿@model SportConnect.Models.Usuario
+
+@{
+    ViewData["Title"] = "ConfirmarSenha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color: #cccccc; min-height: 100%; display: flex; justify-content: center; align-items: center;">
+    <div class="col-md-4" style="background-color: white; width: 500px; padding: 55px 40px 55px 40px; border-radius: 20px; margin: 80px 0px 80px 0px">
+        <h1 class="text-center" style="margin-bottom: 20px; margin-top: 20px; font-size: 35px">Alteração de Senha</h1>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 30px">Digite a nova senha abaixo</p>
+        <form asp-action="ConfirmarSenha" onsubmit="validateForm(event)">
+            <div class="form-group" style="position: relative">
+                <input id="email" asp-for="Email" class="visually-hidden form-control" />
+            </div>
+            <div class="form-group" style="position: relative">
+                <div class="eyeDiv" onclick="handlePassword(event)" style="position: absolute; right: 0px; top: 25px; cursor: pointer; height: 37px; display: flex; align-items: center; padding-right: 15px">
+                    <i class="eye fa-solid fa-eye"></i>
+                </div>
+                <label asp-for="Senha" class="control-label"></label>
+                <input id="password" asp-for="Senha" class="inputPassword form-control" />
+                <span asp-validation-for="Senha" class="text-danger"></span>
+                <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
+            </div>
+            <div class="form-group" style="margin-top: 20px; position: relative">
+                <div onclick="handlePassword(event)" class="eyeDiv" style="position: absolute; right: 0px; top: 25px; cursor: pointer; height: 37px; display: flex; align-items: center; padding-right: 15px">
+                    <i class="eye fa-solid fa-eye"></i>
+                </div>
+                <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
+                <input type="password" id="confirmPassword" class="inputPassword form-control" />
+                <span id="confirmPasswordError" class="visually-hidden text-danger">Confirme a senha!</span>
+                <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
+            </div>
+            <div class="form-group text-center" style="margin-top: 25px; margin-bottom: 15px">
+                <input type="submit" value="Alterar" class="btn btn-primary" style="border-radius: 10px; font-size: 18px; font-weight: 600; padding: 8px 50px 8px 50px" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const email = urlParams.get("email")
+
+    document.getElementById("email").value = email
+
+    const handlePassword = (e) => {
+        const eyeDivs = document.getElementsByClassName("eyeDiv")
+        const eyes = document.getElementsByClassName("eye")
+        const inputs = document.getElementsByTagName("input")
+
+        if([...eyeDivs].indexOf(e.target) != -1){
+            if(inputs[[...eyeDivs].indexOf(e.target) + 1].type == "password"){
+                inputs[[...eyeDivs].indexOf(e.target) + 1].type = "text"
+            }
+            else{
+                inputs[[...eyeDivs].indexOf(e.target) + 1].type = "password"
+            }
+        }
+        else if([...eyes].indexOf(e.target) != -1){
+            if(inputs[[...eyes].indexOf(e.target) + 1].type == "password"){
+                inputs[[...eyes].indexOf(e.target) + 1].type = "text"
+            }
+            else{
+                inputs[[...eyes].indexOf(e.target) + 1].type = "password"
+            }
+        }
+    }
+
+    const validateForm = (e) => {
+        const equalError = document.getElementsByClassName("equalError")
+        const confirmPasswordError = document.getElementById("confirmPasswordError")
+
+        for(let i = 0; i < equalError.length; i++){
+            equalError[i].classList.add("visually-hidden")
+        }
+
+        confirmPasswordError.classList.add("visually-hidden")
+
+        const password = document.getElementById("password").value
+        const confirmPassword = document.getElementById("confirmPassword").value
+
+        if(confirmPassword == ""){
+            e.preventDefault()
+            confirmPasswordError.classList.remove("visually-hidden")
+        }
+
+        if(password != "" && confirmPassword != "" && password != confirmPassword){
+            e.preventDefault()
+
+            for(let i = 0; i < equalError.length; i++){
+                equalError[i].classList.remove("visually-hidden")
+            }
+        }
+    }
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

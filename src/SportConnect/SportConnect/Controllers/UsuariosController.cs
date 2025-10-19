@@ -108,5 +108,42 @@ namespace SportConnect.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult AlterarSenha()
+        {
+            return View();
+        }
+
+        public IActionResult ConfirmarSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConfirmarSenha(Usuario usuario)
+        {
+            if(usuario.Senha == null || usuario.Email == null)
+            {
+                return NotFound();
+            }
+
+            var dados = _context.Usuarios.FirstOrDefault(c => c.Email == usuario.Email);
+
+            if(dados == null)
+            {
+                return RedirectToAction("Sucesso");
+            }
+
+            var senhaCriptografada = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+            dados.Senha = senhaCriptografada;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Sucesso");
+        }
+
+        public IActionResult Sucesso()
+        {
+            return View();
+        }
     }
 }
