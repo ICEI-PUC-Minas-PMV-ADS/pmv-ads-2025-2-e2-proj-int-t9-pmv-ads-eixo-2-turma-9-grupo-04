@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CriarGrupo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SportConnect.Models
 {
@@ -7,5 +8,7 @@ namespace SportConnect.Models
         public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Grupo> Grupos { get; set; }
     }
 }
