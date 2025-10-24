@@ -53,17 +53,25 @@
         if([...eyeDivs].indexOf(e.target) != -1){
             if(inputs[[...eyeDivs].indexOf(e.target) + 1].type == "password"){
                 inputs[[...eyeDivs].indexOf(e.target) + 1].type = "text"
+                eyes[[...eyeDivs].indexOf(e.target)].classList.remove("fa-eye")
+                eyes[[...eyeDivs].indexOf(e.target)].classList.add("fa-eye-slash")
             }
             else{
                 inputs[[...eyeDivs].indexOf(e.target) + 1].type = "password"
+                eyes[[...eyeDivs].indexOf(e.target)].classList.remove("fa-eye-slash")
+                eyes[[...eyeDivs].indexOf(e.target)].classList.add("fa-eye")
             }
         }
         else if([...eyes].indexOf(e.target) != -1){
             if(inputs[[...eyes].indexOf(e.target) + 1].type == "password"){
                 inputs[[...eyes].indexOf(e.target) + 1].type = "text"
+                eyes[[...eyes].indexOf(e.target)].classList.remove("fa-eye")
+                eyes[[...eyes].indexOf(e.target)].classList.add("fa-eye-slash")
             }
             else{
                 inputs[[...eyes].indexOf(e.target) + 1].type = "password"
+                eyes[[...eyes].indexOf(e.target)].classList.remove("fa-eye-slash")
+                eyes[[...eyes].indexOf(e.target)].classList.add("fa-eye")
             }
         }
     }

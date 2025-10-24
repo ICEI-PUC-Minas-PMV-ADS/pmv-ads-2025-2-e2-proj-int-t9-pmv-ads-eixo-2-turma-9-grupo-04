@@ -84,6 +84,7 @@
                 <input id="password" asp-for="Senha" class="inputPassword form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
                 <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
+                <p class="spaceError visually-hidden text-danger">Retire os espaços!</p>
             </div>
             <div class="form-group" style="margin-top: 20px; position: relative">
                 <div onclick="handlePassword(event)" class="eyeDiv" style="position: absolute; right: 0px; top: 25px; cursor: pointer; height: 37px; display: flex; align-items: center; padding-right: 15px">
@@ -93,6 +94,7 @@
                 <input type="password" id="confirmPassword" class="inputPassword form-control" />
                 <span id="confirmPasswordError" class="visually-hidden text-danger">Confirme a senha!</span>
                 <p class="equalError visually-hidden text-danger">As senhas devem ser iguais!</p>
+                <p class="spaceError visually-hidden text-danger">Retire os espaços!</p>
             </div>
             <div class="form-group text-center" style="margin-top: 25px; margin-bottom: 15px">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" style="border-radius: 10px; font-size: 18px; font-weight: 600; padding: 8px 50px 8px 50px" />
@@ -195,9 +197,11 @@
         const cpfError = document.getElementById("cpfError")
         const confirmPasswordError = document.getElementById("confirmPasswordError")
         const equalError = document.getElementsByClassName("equalError")
+        const spaceError = document.getElementsByClassName("spaceError")
 
         for(let i = 0; i < equalError.length; i++){
             equalError[i].classList.add("visually-hidden")
+            spaceError[i].classList.add("visually-hidden")
         }
 
         cpfError.classList.add("visually-hidden")
@@ -219,6 +223,14 @@
 
             for(let i = 0; i < equalError.length; i++){
                 equalError[i].classList.remove("visually-hidden")
+            }
+        }
+
+        if(password == confirmPassword && password.includes(" ")){
+            e.preventDefault()
+
+            for(let i = 0; i < equalError.length; i++){
+                spaceError[i].classList.remove("visually-hidden")
             }
         }
 

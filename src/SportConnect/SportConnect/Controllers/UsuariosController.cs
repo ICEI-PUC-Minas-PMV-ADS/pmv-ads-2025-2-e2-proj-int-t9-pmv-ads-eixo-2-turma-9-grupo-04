@@ -75,10 +75,10 @@ namespace SportConnect.Controllers
             if (senhaOk)
             {
                 var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, dados.Nome),
-                        new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
-                    };
+                {
+                    new Claim(ClaimTypes.Name, dados.Nome),
+                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
+                };
 
                 var usuarioIdentify = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentify);
@@ -92,7 +92,7 @@ namespace SportConnect.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
                 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Grupos");
             }
             else
             {
