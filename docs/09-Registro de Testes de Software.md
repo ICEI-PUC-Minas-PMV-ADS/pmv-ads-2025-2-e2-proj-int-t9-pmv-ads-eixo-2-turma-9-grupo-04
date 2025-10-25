@@ -6,13 +6,18 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 
 | **Caso de Teste** 	| **CT01 – Cadastrar perfil** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que esses consigam criar e gerenciar seu perfil. |
-|Registro de evidência | www.teste.com.br/drive/ct-01 |
+|	Requisito Associado 	| RF-01 - A aplicação deve permitir o cadastro de usuários (CRUD)|
+|Registro de evidência | [www.teste.com.br/drive/ct-01](https://github.com/user-attachments/assets/99986ccd-a683-4feb-8c22-7a082d0e1686) |
 
 | **Caso de Teste** 	| **CT02 – Realizar login** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-00Y - A aplicação deve permitir que um usuário previamente cadastrado faça login |
-|Registro de evidência | www.teste.com.br/drive/ct-02 |
+|	Requisito Associado 	| RF-02 A aplicação deve permitir o login de usuários, para assim ser possível o acesso ao sistema |
+|Registro de evidência | [www.teste.com.br/drive/ct-02](https://github.com/user-attachments/assets/7a7bb921-2da9-4608-b7c6-718104954fe1) |
+
+| **Caso de Teste** 	| **CT03 – Realizar login** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-03 A aplicação deve permitir a criação de grupos (CRUD) |
+|Registro de evidência | [[www.teste.com.br/drive/ct-03](https://github.com/user-attachments/assets/84be05b7-27bf-4bf9-b4eb-3a32f641bc6d) |
 
 ## Relatório de testes de software
 
