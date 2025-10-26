@@ -3,60 +3,32 @@
 O registro de testes de usabilidade é um documento ou planilha onde são coletadas e organizadas as informações sobre a experiência dos usuários ao interagir com um sistema. Ele inclui dados como tempo de execução de tarefas, taxa de sucesso, dificuldades encontradas, erros cometidos e _feedback_ dos usuários. Esse registro permite identificar padrões de uso, obstáculos/dificuldades encontrados na interface e oportunidades de melhoria, fornecendo _insights_ quantitativos e qualitativos para otimizar a experiência do usuário. Além disso, serve como base para análises, correções e futuras iterações do sistema, garantindo que ele atenda às necessidades do público-alvo de forma eficiente.
 
 ## Perfil dos usuários que participaram do teste
-- Usuário 1: 45 anos, nível básico incompleto, conhecimento básico tecnologia
-- Usuário 2: 18 anos, nível superior incompleto, conhecimento avançado tecnologia
-- Usuário 1: 70 anos, nível básico incompleto, conhecimento básico tecnologia
-- Usuário 2: 25 anos, nível superior completo, conhecimento avançado tecnologia
-- Usuário 2: 28 anos, nível superior completo, conhecimento avançado tecnologia
+ * Usuário 1: 22 anos, estudante universitário, superior incompleto, conhecimento avançado de tecnologia.
+ * Usuário 2: 34 anos, profissional de marketing, superior completo, conhecimento médio de tecnologia.
+ * Usuário 3: 58 anos, autônomo, ensino médio completo, conhecimento básico de tecnologia.
+ * Usuário 4: 29 anos, atleta amador, superior completo, conhecimento avançado de tecnologia.
+ * Usuário 5: 47 anos, funcionária pública, ensino médio completo, conhecimento básico de tecnologia.
 
-## Exemplo de tabela de registro dos testes de usabilidade  
 
-Para registrar os indicadores de cada cenário, é preciso manter a coerência com os critérios quantitativos e qualitativos que foram definidos no plano de testes de usabilidade.
+## Tabela de registro dos testes de usabilidade  
 
-**Cenário 1**: O usuário deseja comprar um notebook para uso pessoal. Para isso, ele deverá entrar no site www.compras.com.br para buscar opções disponíveis, comparar preços, adicionar o produto ao carrinho e finalizar a compra com pagamento via cartão de crédito.         
-| **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+**Cenário 1**: O usuário precisa se cadastrar e preencher todas as informações solicitadas.
+| **Usuários**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1    |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2    |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3    |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4    |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5    |                    |                                 |                 |                        |                              |                     | 
+| Usuário 1    |   40 seg    |    10   |     Sim    |  Nenhum    |   "Bem rápido, achei o de sempre. O cadastro foi fácil de preencher."   |           |      
+| Usuário 2    |   65 seg    |    14     |       Sim          |     Nenhum   |   "Processo tranquilo, padrão de outros cadastros"                       |                     |      
+| Usuário 3    |   180 seg    |     32   |        Sim         |  Demorou para achar a cidade. Rolou a lista manualmente     |        "Demorei para achar minha cidade na lista"                      |                     |  
+| Usuário 4    |   75 seg    |   16      |     Sim     |  Nenhum   |     "Funcionou tudo como esperado"                        |                     | 
+| Usuário 5    | 150 seg    |    26      |   Sim   | Tentou avançar sem preencher todos os dados corretamente |   "Poderia mostrar melhor o que falta preencher"   |                     | 
 
-**Cenário 2**:         
+**Cenário 2**:  O usuário precisa criar um grupo e preencher todos os requisitos.     
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
-
-**Cenário 3**:         
-| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
-|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
-
-**Cenário 4**:         
-| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
-|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
-
-**Cenário 5**:         
-| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
-|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
+| Usuário 1   |        35 seg    |              9                   |     Sim            |       Nenhum                 |          "Consegui preencher os campos sem problemas"   |                     |      
+| Usuário 2   |        60 seg    |             9                    |        Sim         |        Nenhum                |            "Criar o grupo foi bem fácil, mas selecionar a modalidade numa lista ou dar sugestões, facilitariam muito"               |                     |      
+| Usuário 3   |        187 seg   |       20           |        Sim         |          Clicou em "cancelar" ao invés de salvar   |  "Tive que refazer tudo, seria melhor se tivesse um aviso antes de cancelar"                 |                     |  
+| Usuário 4   |        72 seg    |              11                   |      Sim           |     Nenhum                   |         "Achei a interface simples, sem muitas coisas complicadas"                   |                     | 
+| Usuário 5   |         145 seg  |              15                   |       Sim          |      Nenhum, apenas demorou para preencher os dados    |    "Achei difícil porque precisava escrever tudo, não tem jeito mais rápido"     |                     | 
 
 ## Relatório dos testes de usabilidade 
 
