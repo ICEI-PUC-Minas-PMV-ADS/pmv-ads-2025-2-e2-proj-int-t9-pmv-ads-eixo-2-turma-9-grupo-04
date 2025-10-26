@@ -32,28 +32,58 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 
 ## Relatório dos testes de usabilidade 
 
-O relatório de testes de usabilidade deve ser um documento claro e estruturado, contendo análises dos testes realizados, identificação de problemas, propostas de correção, melhorias e sugestões para a evolução do sistema. 
-Ele servirá como base para refinamentos no sistema e futuras iterações de testes.
-Deve incluir: 
-- Taxa de sucesso por cenário
-- Tempo médio para completar cada cenário
-- Número médio de erros cometidos por tarefa
-- Taxa de abandono (usuários que não conseguiram concluir a tarefa do cenário)
-- Feedback qualitativo
-  
-A partir disso, organize os resultados e identifique padrões:
-- Principais dificuldades enfrentadas pelos usuários.
-- Quais tarefas foram concluídas sem problemas e quais apresentaram falhas.
-- Sugestões de melhorias para interface, navegação e acessibilidade.
+### Objetivo:
+Avaliar a usabilidade do sistema em dois cenários: cadastro de usuário e criação de grupo, identificando problemas, dificuldades e propondo melhorias.
 
-Dica: Agrupe problemas em níveis de prioridade:
-- Crítico: Impede o uso do sistema.
-- Moderado: Dificulta a experiência, mas não impede o uso.
-- Leve: Pode ser melhorado, mas não compromete a usabilidade.
+### Cenário 1: Cadastro de usuário
 
-Apresente propostas de ações para corrigir os problemas críticos e recorrentes identificados e proponha melhorias incrementais para otimizar a experiência do usuário.
+**Análise Quantitativa**
+- Taxa de sucesso: 100%
+- Tempo médio de conclusão: 102 segundos
+- Número médio de cliques: 19,6
+- Erros médios por usuário: 0,2
+- Taxa de abandono: 0%
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Registro de Testes de Usabilidade”.
+**Principais dificuldades e padrões observados:**
+- Encontrar a cidade na lista foi problemático para alguns usuários.
+- Falta de feedback visual sobre campos obrigatórios causou erro de preenchimento.
 
-> **Links Úteis**:
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+**Sugestões de melhoria:**
+- __*Crítico*__: Nenhum
+- __*Moderado*__: Implementar filtro ou pesquisa rápida para seleção de cidade e adicionar indicação clara dos campos obrigatórios e mensagens de alerta quando um campo não estiver preenchido corretamente.
+- __*Leve*__: Revisar fluxo para reduzir o número de cliques e otimizar o tempo de cadastro.
+
+### Cenário 2: Criação de grupo
+
+**Análise Quantitativa**
+- Taxa de sucesso: 100%
+- Tempo médio de conclusão: 99,8 segundos
+- Número médio de cliques: 12,8
+- Erros médios por usuário: 0,2
+- Taxa de abandono: 0%
+
+**Principais dificuldades e padrões observados:**
+- Risco de clicar em "cancelar" sem aviso.
+- Seleção de modalidades ou preenchimento longos pode confundir usuários.
+- Escrever todas as informações manualmente pode ser cansativo e demorado.
+
+**Sugestões de melhoria:**
+- __*Crítico*__: Adicionar confirmação antes de cancelar ou sair da tela para evitar perda de dados.
+- __*Moderado*__: Implementar sugestões automáticas ou listas filtráveis para campos de seleção.
+- __*Leve*__: Permitir salvamento parcial ou preenchimento rápido para otimizar o tempo.
+
+### Conclusão
+O sistema apresenta uma taxa de sucesso de 100% e interface simples, sem registros de abandono.
+Principais dificuldades incluem campos de seleção longa, falta de feedback visual, risco de cancelamento acidental e processos demorados de preenchimento manual.
+
+**Prioridade de ação:**
+- __*Crítico*__: Cancelamento acidental.
+- __*Moderado*__: Seleção de listas longas, e campos obrigatórios sem feedbacks claros.
+- __*Leve*__: Fluxos demorados.
+
+**Propostas de melhorias:**
+- Adicionar feedback visual e alertas em tempo real para campos obrigatórios.
+- Implementar pesquisa rápida em listas (cidades, modalidades).
+- Adicionar confirmação ao cancelar para evitar perda de dados.
+- Otimizar o preenchimento de formulários longos com sugestões ou auto-preenchimento.
+- Revisar fluxo de cliques para reduzir esforço do usuário e aumentar eficiência.
