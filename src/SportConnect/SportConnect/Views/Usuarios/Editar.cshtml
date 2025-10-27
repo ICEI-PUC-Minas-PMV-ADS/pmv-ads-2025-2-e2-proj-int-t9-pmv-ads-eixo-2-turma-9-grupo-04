@@ -1,0 +1,187 @@
+﻿@model SportConnect.Models.Usuario
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div style="padding-left: 80px; padding-top: 50px" class="col-md-4">
+        <a asp-action="Detalhes" asp-route-id="@Model?.Id">
+            <i style="font-size: 50px; color: #212529; cursor: pointer" class="fa-solid fa-arrow-left"></i>
+        </a>
+        
+        <h1 style="margin-bottom: 30px; margin-top: 30px">Editar Perfil</h1>
+        <form onsubmit="validateForm(event)" asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Senha" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div style="margin: 10px 0px 10px 0px" class="form-group">
+                <label for="cpf" asp-for="Cpf" class="control-label"></label>
+                <input id="cpf" oninput="cpfMask(event)" asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+                <span id="cpfError" class="visually-hidden text-danger">Cpf inválido!</span>
+            </div>
+            <div class="form-group">
+                <label for="email" asp-for="Email" class="control-label"></label>
+                <input id="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <span id="emailError" class="visually-hidden text-danger">Email inválido!</span>
+            </div>
+            <div style="margin: 10px 0px 10px 0px" class="form-group">
+                <label asp-for="DataDeNascimento" class="control-label"></label>
+                <input asp-for="DataDeNascimento" class="form-control" />
+                <span asp-validation-for="DataDeNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="estado" asp-for="Estado" class="control-label"></label>
+                <select onchange="getCidades()" asp-for="Estado" class="form-control" id="estado">
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div style="margin: 10px 0px 0px 0px" class="form-group">
+                <label for="cidade" asp-for="Cidade" class="control-label"></label>
+                <select asp-for="Cidade" class="form-control" id="cidade">
+                    <option selected value="">@ViewData["Cidade"]</option>
+                </select>
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            
+            <div style="display: flex; margin-top: 50px">
+                <a style="margin-right: 15px">
+                    <input type="submit" value="Salvar" class="btn btn-primary" style="border-radius: 10px; font-size: 16px; font-weight: 600; padding: 8px 35px 8px 35px" />
+                </a>
+
+                <a asp-action="Detalhes" asp-route-id="@Model?.Id">
+                    <input type="button" value="Cancelar" class="btn btn-danger" style="border-radius: 10px; font-size: 16px; font-weight: 600; padding: 8px 30px 8px 30px" />
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const estado = document.getElementById("estado")
+    const cidade = document.getElementById("cidade")
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const result = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`)
+        const output = await result.json()
+
+        var cidadeHtml
+
+        output.forEach((element, index) => {
+            if(element.nome != "@Html.Raw(Model.Cidade)"){
+                cidadeHtml += `<option value="${element.nome}">${element.nome}</option>`
+            }
+            else{
+                cidadeHtml += `<option selected value="${element.nome}">${element.nome}</option>`
+            }
+        })
+
+        cidade.innerHTML = cidadeHtml
+    })
+
+    const cpfMask = (v) => {
+        if(v.target.value.length < 15){
+            v.target.value = v.target.value.replace(/\D/g,"")
+            v.target.value = v.target.value.replace(/(\d{3})(\d)/,"$1.$2")
+            v.target.value = v.target.value.replace(/(\d{3})(\d)/,"$1.$2")
+            v.target.value = v.target.value.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+        }
+        else{
+            v.target.value = v.target.value.slice(0, -1)
+        }
+    }
+
+    const emailMask = (email) => {
+        const regex = /.+@@.+\.[A-Za-z]+$/
+
+        if(regex.test(email)){
+            return true
+        }
+
+        else{
+            return false
+        }
+    }
+
+    const getCidades = async () => {
+        const result = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`)
+        const output = await result.json()
+
+        var cidadeHtml
+
+        output.forEach((element, index) => {
+            if(element.nome != "@Html.Raw(Model.Cidade)"){
+                cidadeHtml += `<option value="${element.nome}">${element.nome}</option>`
+            }
+            else{
+                cidadeHtml += `<option selected value="${element.nome}">${element.nome}</option>`
+            }
+        })
+
+        cidade.innerHTML = cidadeHtml
+    }
+
+    const validateForm = (e) => {
+        const email = document.getElementById("email").value
+        const cpf = document.getElementById("cpf").value
+
+        const emailError = document.getElementById("emailError")
+        const cpfError = document.getElementById("cpfError")
+
+        emailError.classList.add("visually-hidden")
+        cpfError.classList.add("visually-hidden")
+
+        if(emailMask(email) == false){
+            e.preventDefault()
+
+            emailError.classList.remove("visually-hidden")
+        }
+
+        if(cpf.length < 14){
+            e.preventDefault()
+
+            cpfError.classList.remove("visually-hidden")
+        }
+    }
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

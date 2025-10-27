@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using NuGet.Repositories;
 using SportConnect.Models;
+using System.Net.NetworkInformation;
 using System.Security.Claims;
 
 namespace SportConnect.Controllers
@@ -142,6 +146,189 @@ namespace SportConnect.Controllers
         }
 
         public IActionResult Sucesso()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Detalhes(int id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            if(int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) != id)
+            {
+                return RedirectToAction("AcessoNegado");
+            }
+
+            var dados = await _context.Usuarios.FindAsync(id);
+
+            if(dados == null)
+            {
+                return NotFound();
+            }
+
+            dados.Cpf = Convert.ToUInt64(dados.Cpf).ToString(@"000\.000\.000\-00");
+
+            switch (dados.Estado)
+            {
+                case "AC":
+                    dados.Estado = "Acre";
+                    break;
+                case "AL":
+                    dados.Estado = "Alagoas";
+                    break;
+                case "AP":
+                    dados.Estado = "Amapá";
+                    break;
+                case "AM":
+                    dados.Estado = "Amazonas";
+                    break;
+                case "BA":
+                    dados.Estado = "Bahia";
+                    break;
+                case "CE":
+                    dados.Estado = "Ceará";
+                    break;
+                case "DF":
+                    dados.Estado = "Distrito Federal";
+                    break;
+                case "ES":
+                    dados.Estado = "Espírito Santo";
+                    break;
+                case "GO":
+                    dados.Estado = "Goiás";
+                    break;
+                case "MA":
+                    dados.Estado = "Maranhão";
+                    break;
+                case "MT":
+                    dados.Estado = "Mato Grosso";
+                    break;
+                case "MS":
+                    dados.Estado = "Mato Grosso do Sul";
+                    break;
+                case "MG":
+                    dados.Estado = "Minas Gerais";
+                    break;
+                case "PA":
+                    dados.Estado = "Pará";
+                    break;
+                case "PB":
+                    dados.Estado = "Paraíba";
+                    break;
+                case "PR":
+                    dados.Estado = "Paraná";
+                    break;
+                case "PE":
+                    dados.Estado = "Pernambuco";
+                    break;
+                case "PI":
+                    dados.Estado = "Piauí";
+                    break;
+                case "RJ":
+                    dados.Estado = "Rio de Janeiro";
+                    break;
+                case "RN":
+                    dados.Estado = "Rio Grande do Norte";
+                    break;
+                case "RS":
+                    dados.Estado = "Rio Grande do Sul";
+                    break;
+                case "RO":
+                    dados.Estado = "Rondônia";
+                    break;
+                case "RR":
+                    dados.Estado = "Roraima";
+                    break;
+                case "SC":
+                    dados.Estado = "Santa Catarina";
+                    break;
+                case "SP":
+                    dados.Estado = "São Paulo";
+                    break;
+                case "SE":
+                    dados.Estado = "Sergipe";
+                    break;
+                case "TO":
+                    dados.Estado = "Tocantins";
+                    break;
+            }
+
+            return View(dados);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Editar(int id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            if (int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) != id)
+            {
+                return RedirectToAction("AcessoNegado");
+            }
+
+            var dados = await _context.Usuarios.FindAsync(id);
+
+            if(dados == null)
+            {
+                return NotFound();
+            }
+
+            dados.Cpf = Convert.ToUInt64(dados.Cpf).ToString(@"000\.000\.000\-00");
+
+            return View(dados);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Editar(int id, Usuario usuario)
+        {
+            if(id != usuario.Id)
+            {
+                return NotFound();
+            }
+
+            usuario.Cpf = usuario.Cpf.Replace("-", "").Replace(".", "");
+            _context.Update(usuario);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction("Detalhes", new { id = usuario.Id });
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            if (int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) != id)
+            {
+                return RedirectToAction("AcessoNegado");
+            }
+
+            var dados = await _context.Usuarios.FindAsync(id);
+
+            if(dados == null)
+            {
+                return NotFound();
+            }
+
+            _context.Usuarios.Remove(dados);
+            await _context.SaveChangesAsync();
+            await HttpContext.SignOutAsync();
+
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult AcessoNegado()
         {
             return View();
         }
