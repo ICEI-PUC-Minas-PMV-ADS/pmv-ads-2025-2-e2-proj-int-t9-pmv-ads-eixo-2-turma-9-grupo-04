@@ -11,17 +11,17 @@ namespace CriarGrupo.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage ="Informe o nome do grupo")]
-        [Display(Name = "Nome do Grupo")]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Informe a descrição do grupo")]
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
-        [Display(Name = "Número Máximo de Participantes")]
+        [Display(Name = "Número máximo de participantes")]
         public int NumeroMaximoParticipantes { get; set; }
 
-        [Display(Name = "Lista de Espera")]
+        [Display(Name = "Adicionar lista de espera?")]
         public bool ListaEspera {  get; set; }
 
         [Required(ErrorMessage = "Informe a modalidade da atividade")]

@@ -4,70 +4,85 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Grupos Criados</h1>
-
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Criar novo grupo</a>
-  
+    <a asp-action="Create" class="btn btn-criar ">Criar novo grupo</a>
+    <a asp-action="Create" class="btn btn-criar ">Emitir Relatório</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroMaximoParticipantes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ListaEspera)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modalidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroMaximoParticipantes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ListaEspera)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modalidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<h1>Grupos</h1>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <p><strong>Nome:</strong> @item.Nome</p>
+
+                    <p class="mb-1"><strong>Descrição:</strong> @item.Descricao</p>
+                    <p class="mb-1"><strong>Máximo de Participantes:</strong> @item.NumeroMaximoParticipantes</p>
+                    <p class="mb-1">
+                        <strong>Adicionar lista de espera?:</strong> @(item.ListaEspera ? "Sim" : "Não")
+                    </p>
+
+                    <p class="mb-1"><strong>Modalidade:</strong> @item.Modalidade</p>
+                    <p class="mb-1"><strong>Estado:</strong> @item.Estado</p>
+                    <p class="mb-0"><strong>Cidade:</strong> @item.Cidade</p>
+                </div>
+
+                <div class="card-footer bg-white border-0 d-flex justify-content-center gap-3">
+                    <a asp-action="Edit" asp-route-id="@item.Id"
+                       class="btn btn-primary btn-custom">Editar</a>
+
+                    <a asp-action="Details" asp-route-id="@item.Id"
+                       class="btn btn-primary btn-custom">Visualizar</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.Id"
+                       class="btn btn-danger btn-custom">Excluir Grupo</a>
+                </div>
+
+                <style>
+                    .btn-custom {
+                        border-radius: 12px;
+                        width: 130px; /* 🔹 mesmo tamanho para todos */
+                        padding: 4px 0; /* 🔹 deixa mais fino */
+                        font-size: 0.9rem; /* 🔹 texto um pouco menor */
+                        font-weight: 500; /* 🔹 texto mais equilibrado */
+                    }
+
+                
+                    .card {
+                        border-radius: 12px; /* 🔹 raio de arredondamento das bordas */
+                        overflow: hidden; /* 🔹 evita que o conteúdo ultrapasse as bordas arredondadas */
+                        
+                    }
+
+                        .card p {
+                            margin-bottom: 4px; /* 🔹 reduz o espaço entre linhas */
+                        }
+
+                        h1{
+                            font-size: 28px;
+                            
+                            margin-bottom: 30px;                         
+                        }
+
+                        p {
+                            margin-bottom: 20px;
+                            
+                        }
+
+                        .btn-criar {
+                            border-radius: 12px;
+                            border-color: #000;
+                            margin-top: 20px;
+
+                        }
+                                       
+                </style>
+
+            </div>
+        </div>
+    }
+</div>

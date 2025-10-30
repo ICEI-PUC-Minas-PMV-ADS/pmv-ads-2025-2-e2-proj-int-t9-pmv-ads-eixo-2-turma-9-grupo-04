@@ -2,23 +2,11 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .form-control {
-        border-radius: 10px; /* Aumente ou diminua o número pra ajustar a curvatura */
-    }
 
-    .btn {
-        border-radius: 6px;
-    }
-
-    .form-group {
-        margin-bottom: 15px; /* adiciona espaçamento entre os campos */
-    }
-</style>
-
-<h1>Criar Grupo</h1>
+<h1>Criar Grupo </h1>
 </br>
 
 <div class="row">
@@ -32,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
+                <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -56,16 +44,21 @@
                 <input asp-for="Modalidade" class="form-control" />
                 <span asp-validation-for="Modalidade" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
+                <input asp-for="Estado" class="form-control" list="lista-estados" />
+                <datalist id="lista-estados"></datalist>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" />
+                <input asp-for="Cidade" class="form-control" list="lista-cidades" />
+                <datalist id="lista-cidades"></datalist>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-danger"> Cancelar</a>
@@ -73,6 +66,94 @@
         </form>
     </div>
 </div>
+
+<style>
+    .form-control {
+        border-radius: 10px; 
+    }
+
+    .btn {
+        border-radius: 6px;
+    }
+
+    .form-group {
+        margin-bottom: 15px; 
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-top:30px;
+    }
+</style>
+
+<script>
+    (function () {
+      const inputEstado = document.getElementById("Estado");
+      const inputCidade = document.getElementById("Cidade");
+      const dlEstados = document.getElementById("lista-estados");
+      const dlCidades = document.getElementById("lista-cidades");
+
+     
+      let mapaNomeParaId = {};
+
+      
+      fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+        .then(r => r.json())
+        .then(estados => {
+          
+          estados.sort((a, b) => a.nome.localeCompare(b.nome));
+
+          dlEstados.innerHTML = ""; 
+
+          estados.forEach(uf => {
+           
+            mapaNomeParaId[uf.nome] = uf.id;
+
+            const opt = document.createElement("option");
+            opt.value = uf.nome; 
+            dlEstados.appendChild(opt);
+          });
+
+         
+          if (inputEstado.value && mapaNomeParaId[inputEstado.value]) {
+            carregarCidades(inputEstado.value);
+          }
+        })
+        .catch(err => console.error("Erro ao carregar estados:", err));
+
+      
+      inputEstado.addEventListener("change", () => {
+        const nomeEstado = (inputEstado.value || "").trim();
+        inputCidade.value = "";
+        dlCidades.innerHTML = "";
+
+        if (!mapaNomeParaId[nomeEstado]) return;
+
+        carregarCidades(nomeEstado);
+      });
+
+      
+      function carregarCidades(nomeEstado) {
+        const idUf = mapaNomeParaId[nomeEstado];
+        if (!idUf) return;
+
+        const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${idUf}/municipios?orderBy=nome`;
+
+        fetch(url)
+          .then(r => r.json())
+          .then(municipios => {
+            dlCidades.innerHTML = "";
+            municipios.forEach(m => {
+              const opt = document.createElement("option");
+              opt.value = m.nome;
+              dlCidades.appendChild(opt);
+            });
+          })
+          .catch(err => console.error("Erro ao carregar cidades:", err));
+      }
+    })();
+</script>
+
 
 
 @section Scripts {
