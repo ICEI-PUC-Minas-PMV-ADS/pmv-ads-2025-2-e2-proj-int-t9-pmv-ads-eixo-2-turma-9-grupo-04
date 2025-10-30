@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SportConnect.Models.Evento>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<h1>Eventos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Criar Novo Evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning" >Editar Evento</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary" >Mais Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Apagar Evento</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

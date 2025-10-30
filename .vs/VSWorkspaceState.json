@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\SportConnect",
+    "\\src\\SportConnect\\SportConnect",
+    "\\src\\SportConnect\\SportConnect\\Controllers",
+    "\\src\\SportConnect\\SportConnect\\Migrations",
+    "\\src\\SportConnect\\SportConnect\\Models",
+    "\\src\\SportConnect\\SportConnect\\Properties",
+    "\\src\\SportConnect\\SportConnect\\Views"
+  ],
+  "PreviewInSolutionExplorer": false
+}

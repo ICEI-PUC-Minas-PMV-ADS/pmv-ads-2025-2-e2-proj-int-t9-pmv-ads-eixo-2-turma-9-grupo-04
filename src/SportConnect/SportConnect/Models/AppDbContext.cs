@@ -10,5 +10,7 @@ namespace SportConnect.Models
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Grupo> Grupos { get; set; }
+
+        public DbSet<Evento> Eventos { get; set; }
     }
 }
