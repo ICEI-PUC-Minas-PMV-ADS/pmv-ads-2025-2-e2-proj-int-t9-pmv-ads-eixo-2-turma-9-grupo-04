@@ -5,10 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section HeadStyles {
+    <style>
+        @@media (max-width: 768px) {
+            .eyeDiv {
+                padding-bottom: 9px;
+            }
+        }
+
+        @@media (max-width: 510px) {
+            h1{
+                font-size: 23px !important;
+            }
+
+            #text{
+                font-size: 16px !important;
+            }
+
+            #form {
+                margin: 55px 30px 55px 30px !important;
+                padding: 40px !important;
+            }
+        }
+    </style>
+}
+
 <div style="background-color: #cccccc; min-height: 100%; display: flex; justify-content: center; align-items: center;">
-    <div class="col-md-4" style="background-color: white; width: 500px; padding: 55px 40px 55px 40px; border-radius: 20px; margin: 80px 0px 80px 0px">
+    <div id="form" class="col-md-4" style="background-color: white; width: 500px; padding: 55px 40px 55px 40px; border-radius: 20px; margin: 80px 0px 80px 0px">
         <h1 class="text-center" style="margin-bottom: 20px; margin-top: 20px; font-size: 35px">Alteração de Senha</h1>
-        <p style="text-align: center; font-size: 18px; margin-bottom: 30px">Digite a nova senha abaixo</p>
+        <p id="text" style="text-align: center; font-size: 18px; margin-bottom: 30px">Digite a nova senha abaixo</p>
         <form asp-action="ConfirmarSenha" onsubmit="validateForm(event)">
             <div class="form-group" style="position: relative">
                 <input id="email" asp-for="Email" class="visually-hidden form-control" />

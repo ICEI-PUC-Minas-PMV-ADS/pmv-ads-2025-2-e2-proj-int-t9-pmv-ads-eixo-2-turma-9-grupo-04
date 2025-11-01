@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SportConnect.styles.css" asp-append-version="true" />
-
+    @RenderSection("HeadStyles", required: false)
     <style>
         html{
             height: 100%;
@@ -23,103 +23,144 @@
         .dropdown-item:hover{
             background-color: #2081F9 !important;
         }
+
+        .navbar-toggler:focus,
+        .navbar-toggler:active,
+        .navbar-toggler-icon:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            height: 30px;
+            width: 30px;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .btn-close{
+            opacity: 1 !important;
+        }
+
+        @@media (max-width: 830px){
+            .nav-item{
+                font-size: 14px;
+            }
+        }
+
+        @@media (max-width: 767px) {
+            .nav-item{
+                font-size: 17px;
+            }
+
+            .offcanvas{
+                padding: 17px 15px 0px 15px;
+            }
+
+            #sideBarNav{
+                display: block !important;
+            }
+
+            #navBar{
+                display: none !important;
+            }
+        }
+
+        @@media (max-width: 600px){
+            .navbar{
+                padding: 0px 20px 0px 20px !important;
+            }
+
+            #logo{
+                height: 50px !important;
+                width: 60px;
+            }
+        }
     </style>
 </head>
 <body class="m-0">
     <header>
-        <nav style="background-color: #09264A; height: 100px; padding: 0px 30px 0px 30px" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
-            <div style="display: flex; justify-content: space-between; width: 100%;">
+        <nav style="background-color: #09264A; height: 100px; padding: 0px 30px 0px 30px" class="navbar navbar-expand-md navbar-toggleable-md navbar-light border-bottom box-shadow">
+            <div style="height: 100%; display: flex; justify-content: space-between; width: 100%;">
                 <div style="display: flex; align-items: center;">
-                    <a asp-area="" asp-controller="Home" asp-action="Index">
-                        <img style="height: 60px; margin-right: 10px" src="~/images/logo.png" />
-                    </a>
-                    <a style="color: white; padding: 8px 0px 8px 0px !important; margin: 0px !important" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportConnect</a>
-                </div>
-                
-                @* HEADER RESPONSIVO*@
+                    @{
+                        var controller = ViewContext.RouteData.Values["controller"] as string;
+                        var action = ViewContext.RouteData.Values["action"] as string;
+                    }
 
-                @* <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <a asp-area="" asp-controller="@(User.Identity.IsAuthenticated && ((controller == "Usuarios" && (action == "Editar" || action == "Excluir" || action == "Detalhes")) || (controller != "Usuarios" && controller != "Home")) ? "Grupos" : "Home")" asp-action="Index">
+                        <img id="logo" style="height: 60px; margin-right: 10px" src="~/images/logo.png" />
+                    </a>
+                    <a style="color: white; padding: 8px 0px 8px 0px !important; margin: 0px !important" class="navbar-brand" asp-area="" asp-controller="@(User.Identity.IsAuthenticated && ((controller == "Usuarios" && (action == "Editar" || action == "Excluir" || action == "Detalhes")) || (controller != "Usuarios" && controller != "Home")) ? "Grupos" : "Home")" asp-action="Index">SportConnect</a>
+                </div>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span style="color: white" class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div style="display: flex; justify-content: center; background-color: #09264A" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h5 class="text-white offcanvas-title" id="offcanvasNavbarLabel">SportConnect</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">Sobre Nós</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">Contato</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Grupos" asp-action="Index">Ver Grupos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Cadastrar">Cadastre-se</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                            </li>
+                            @if ((controller == "Grupos" && action == "Index" && !User.Identity.IsAuthenticated) || controller == "Home" || (controller == "Usuarios" && (action == "Login" || action == "Cadastrar" || action == "AlterarSenha" || action == "ConfirmarSenha" || action == "Sucesso")))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-white">Sobre Nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-white">Contato</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Grupos" asp-action="Index">Ver Grupos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Cadastrar">Cadastre-se</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                                </li>
+                            }
+                        
+                            @if (User.Identity.IsAuthenticated && ((controller == "Usuarios" && (action == "Editar" || action == "Excluir" || action == "Detalhes")) || (controller != "Usuarios" && controller != "Home")))
+                            {
+                                <div id="navBar" style="display: flex;">
+                                    <li class="nav-item" style="display: flex; align-items: center; margin-right: 20px">
+                                        <i style="color: white; font-size: 24px" class="fa-solid fa-bell"></i>
+                                        <a class="nav-link text-white" asp-area="">Notificações</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="dropdown">
+                                            <a style="text-decoration: none; display: flex; align-items: center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img style="height: 50px;" src="~/images/usuario-foto.png" />
+                                                <p style="margin: 0px" class="nav-link text-white">@User.Identity.Name</p>
+
+                                                <ul style="padding: 0px !important; min-width: 0px; width: 122px !important; background: #09264A; border: solid 1px white" class="dropdown-menu">
+                                                    <li style="border-bottom: solid 1px white"><a asp-controller="Usuarios" asp-action="Detalhes" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier).Value" style="padding: 8px 0px 8px 0px" class="dropdown-item text-white text-center">Perfil</a></li>
+                                                    <li><a style="padding: 8px 0px 8px 0px" asp-area="" asp-controller="Usuarios" asp-action="Logout" class="text-center dropdown-item text-white">Sair</a></li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </div>
+
+                                <div id="sideBarNav" style="display: none">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-controller="Usuarios" asp-action="Detalhes" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier).Value">Perfil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link text-white">Notificações</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="" asp-controller="Usuarios" asp-action="Logout" class="nav-link text-white">Sair</a>
+                                    </li>
+                                </div>
+                            }
                         </ul>
                     </div>
-                </div> *@
-
-                <div style="display: flex; align-items: center">
-                    <ul class="navbar-nav flex-grow-1">
-                        @{
-                            var controller = ViewContext.RouteData.Values["controller"] as string;
-                            var action = ViewContext.RouteData.Values["action"] as string;
-                        }
-
-                        @if ((controller == "Grupos" && action == "Index" && !User.Identity.IsAuthenticated) || controller == "Home" || (controller == "Usuarios" && (action == "Login" || action == "Cadastrar" || action == "AlterarSenha" || action == "ConfirmarSenha" || action == "Sucesso")))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">Sobre Nós</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white">Contato</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Grupos" asp-action="Index">Ver Grupos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Cadastrar">Cadastre-se</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                            </li>
-                        }
-                        
-                        @if (User.Identity.IsAuthenticated && ((controller == "Usuarios" && (action == "Editar" || action == "Excluir" || action == "Detalhes")) || (controller != "Usuarios" && controller != "Home")))
-                        {
-                            <li class="nav-item" style="display: flex; align-items: center; margin-right: 20px">
-                                <i style="color: white; font-size: 24px" class="fa-solid fa-bell"></i>
-                                <a class="nav-link text-white" asp-area="">Notificações</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a style="text-decoration: none; display: flex; align-items: center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img style="height: 50px;" src="~/images/usuario-foto.png" />
-                                        <p style="margin: 0px" class="nav-link text-white">@User.Identity.Name</p>
-
-                                        <ul style="padding: 0px !important; min-width: 0px; width: 122px !important; background: #09264A; border: solid 1px white" class="dropdown-menu">
-                                            <li style="border-bottom: solid 1px white"><a asp-controller="Usuarios" asp-action="Detalhes" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier).Value" style="padding: 8px 0px 8px 0px" class="dropdown-item text-white text-center">Perfil</a></li>
-                                            <li><a style="padding: 8px 0px 8px 0px" asp-area="" asp-controller="Usuarios" asp-action="Logout" class="text-center dropdown-item text-white">Sair</a></li>
-                                        </ul>
-                                    </a>
-                                </div>
-                            </li>
-                        }
-                    </ul>
                 </div>
             </div>
         </nav>
