@@ -45,3 +45,19 @@ Tela que permite apresentar feedback ao usuário quando a alteração foi bem su
 <img width="1974" height="1404" alt="Image" src="https://github.com/user-attachments/assets/1dceecab-9fdd-450a-9018-80a07591f3d7" />
 
 ---
+
+### Tela de Visualização de Perfil
+
+Tela que permite apresentar as informações do usuário.
+
+<img width="1991" height="1303" alt="Image" src="https://github.com/user-attachments/assets/c0dd5f54-4f17-4702-bbce-6b5726f2fd5c" />
+
+---
+
+### Tela de Edição de Perfil
+
+Tela que permite editar os dados cadastrados do usuário.
+
+<img width="1991" height="2005" alt="Image" src="https://github.com/user-attachments/assets/83e9d289-d143-4358-80ea-5d982f6227b1" />
+
+---
