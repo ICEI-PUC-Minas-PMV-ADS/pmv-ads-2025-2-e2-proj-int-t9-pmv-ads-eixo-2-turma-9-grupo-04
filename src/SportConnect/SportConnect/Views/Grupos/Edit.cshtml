@@ -46,17 +46,47 @@
 
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" list="lista-estados" autocomplete="off" />
-                <datalist id="lista-estados"></datalist>
+                <select asp-for="Estado" class="form-control" id="estado" data-estado="@Model.Estado" onchange="getCidades()">
+                    <option value="" selected disabled hidden>Selecione um estado</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" list="lista-cidades" autocomplete="off" />
-                <datalist id="lista-cidades"></datalist>
+                <select asp-for="Cidade" class="form-control" id="cidade" data-cidade="@Model.Cidade" disabled>
+                    <option value="" selected disabled hidden>Selecione uma cidade</option>
+                </select>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
+
 
 
             <div class="form-group">
@@ -74,6 +104,7 @@
         font-size: 30px;
         margin-top: 30px;
         margin-bottom: 30px;
+        margin-left: 50px;
     }
 
     .form-control {
@@ -88,6 +119,10 @@
         margin-bottom: 15px;
     }
 
+    .col-md-4 {
+        margin-left: 50px; 
+    }
+
 </style>
 
 @section Scripts {
@@ -96,100 +131,61 @@
     }
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const inputEstado = document.getElementById("Estado");
-          const inputCidade = document.getElementById("Cidade");
-          const dlEstados   = document.getElementById("lista-estados");
-          const dlCidades   = document.getElementById("lista-cidades");
-          if (!inputEstado || !inputCidade || !dlEstados || !dlCidades) return;
+      const estado = document.getElementById("estado");
+      const cidade = document.getElementById("cidade");
 
+      
+      const estadoInicial = estado.dataset.estado || "";
+      const cidadeInicial = cidade.dataset.cidade || "";
+
+      document.addEventListener("DOMContentLoaded", async () => {
+      
+        if (estadoInicial) {
+          estado.value = estadoInicial;
+          await getCidades(true); 
+        } else {
           
-          const norm = s => (s||"").toString()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            .trim().toUpperCase();
+          estado.value = "";
+          cidade.innerHTML = '<option value="" selected disabled hidden>Selecione uma cidade</option>';
+          cidade.disabled = true;
+        }
+      });
 
-          const nomeUF_to_id   = Object.create(null); 
-          const nomeUF_oficial = Object.create(null); 
+      
+      async function getCidades(tentarMarcarCidade = false) {
+        if (!estado.value) {
+          cidade.innerHTML = '<option value="" selected disabled hidden>Selecione uma cidade</option>';
+          cidade.disabled = true;
+          return;
+        }
 
-          
-          toggleCidade(false);
+        try {
+          const resp = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`);
+          const lista = await resp.json();
 
-          
-          fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-            .then(r => r.json())
-            .then(estados => {
-              estados.sort((a,b) => a.nome.localeCompare(b.nome));
-              dlEstados.innerHTML = "";
+          let options = '<option value="" disabled hidden>Selecione uma cidade</option>';
+          lista.forEach(m => { options += `<option value="${m.nome}">${m.nome}</option>`; });
 
-              estados.forEach(uf => {
-                const k = norm(uf.nome);
-                nomeUF_to_id[k] = uf.id;
-                nomeUF_oficial[k] = uf.nome;
+          cidade.innerHTML = options;
+          cidade.disabled = false;
 
-                const opt = document.createElement("option");
-                opt.value = uf.nome; 
-                dlEstados.appendChild(opt);
-              });
-
-              
-              const estadoAtual = inputEstado.value;
-              const kAtual = norm(estadoAtual);
-              if (estadoAtual && nomeUF_to_id[kAtual]) {
-                carregarCidades(kAtual, /*tentarManterCidade=*/true);
-              }
-            });
-
-          
-          inputEstado.addEventListener("change", () => {
-            const k = norm(inputEstado.value);
-            limparCidades();
-            if (!nomeUF_to_id[k]) {
-              toggleCidade(false);
-              return;
-            }
-            carregarCidades(k, /*tentarManterCidade=*/false);
-          });
-
-          function carregarCidades(kUF, tentarManterCidade) {
-            const idUf = nomeUF_to_id[kUF];
-            if (!idUf) return;
-
-            toggleCidade(false);
-            limparCidades();
-
-            const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${idUf}/municipios?orderBy=nome`;
-            fetch(url)
-              .then(r => r.json())
-              .then(municipios => {
-                dlCidades.innerHTML = "";
-                municipios.forEach(m => {
-                  const opt = document.createElement("option");
-                  opt.value = m.nome; 
-                  dlCidades.appendChild(opt);
-                });
-
-                toggleCidade(true);
-
-                if (tentarManterCidade) {
-                  const cidadeAtual = (inputCidade.value || "").trim();
-                  const existe = cidadeAtual && municipios.some(m => norm(m.nome) === norm(cidadeAtual));
-                  if (!existe) inputCidade.value = ""; 
-                } else {
-                  inputCidade.value = ""; /
-                }
-              })
-              .catch(() => toggleCidade(false));
+        
+          if (tentarMarcarCidade && cidadeInicial) {
+            
+            const norm = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toUpperCase();
+            const existe = lista.some(m => norm(m.nome) === norm(cidadeInicial));
+            if (existe) cidade.value = cidadeInicial;
+            else cidade.value = "";
+          } else {
+           
+            cidade.value = "";
           }
-
-          function limparCidades() {
-            inputCidade.value = "";
-            dlCidades.innerHTML = "";
-          }
-
-          function toggleCidade(habilitar) {
-            inputCidade.disabled = !habilitar;
-            inputCidade.placeholder = habilitar ? "" : "Selecione o Estado primeiro";
-          }
-        });
+        } catch (e) {
+          console.error("Erro ao carregar cidades do IBGE:", e);
+          cidade.innerHTML = '<option value="" selected disabled hidden>Não foi possível carregar</option>';
+          cidade.disabled = true;
+        }
+      }
     </script>
 }
+
