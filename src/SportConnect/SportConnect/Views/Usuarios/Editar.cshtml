@@ -5,10 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section HeadStyles {
+    <style>
+        @@media (max-width: 555px) {
+            #content{
+                padding: 50px 40px 0px 40px !important;
+                width: auto !important;
+            }
+        }
+
+        @@media (max-width: 390px) {
+            #btns{
+                flex-direction: column !important;
+            }
+
+            #delete{
+                margin-top: 20px !important;
+            }
+
+            #arrow{
+                font-size: 40px !important;
+            }
+        }
+    </style>
+}
+
 <div>
-    <div style="padding-left: 80px; padding-top: 50px" class="col-md-4">
+    <div id="content" style="width: 476px; padding: 50px 0px 0px 80px">
         <a asp-action="Detalhes" asp-route-id="@Model?.Id">
-            <i style="font-size: 50px; color: #212529; cursor: pointer" class="fa-solid fa-arrow-left"></i>
+            <i id="arrow" style="font-size: 50px; color: #212529; cursor: pointer" class="fa-solid fa-arrow-left"></i>
         </a>
         
         <h1 style="margin-bottom: 30px; margin-top: 30px">Editar Perfil</h1>
@@ -79,12 +104,12 @@
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             
-            <div style="display: flex; margin-top: 50px">
+            <div id="btns" style="display: flex; margin-top: 50px">
                 <a style="margin-right: 15px">
                     <input type="submit" value="Salvar" class="btn btn-primary" style="border-radius: 10px; font-size: 16px; font-weight: 600; padding: 8px 35px 8px 35px" />
                 </a>
 
-                <a asp-action="Detalhes" asp-route-id="@Model?.Id">
+                <a id="delete" asp-action="Detalhes" asp-route-id="@Model?.Id">
                     <input type="button" value="Cancelar" class="btn btn-danger" style="border-radius: 10px; font-size: 16px; font-weight: 600; padding: 8px 30px 8px 30px" />
                 </a>
             </div>

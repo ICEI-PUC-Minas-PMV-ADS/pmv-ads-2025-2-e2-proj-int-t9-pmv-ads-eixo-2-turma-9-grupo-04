@@ -4,8 +4,25 @@
     ViewData["Title"] = "Cadastrar";
 }
 
+@section HeadStyles {
+    <style>
+        @@media (max-width: 768px) {
+            .eyeDiv {
+                padding-bottom: 9px;
+            }
+        }
+
+        @@media (max-width: 510px){
+            #cadastro-form{
+                margin: 80px 30px 80px 30px !important;
+                padding: 20px 30px 20px 30px !important;
+            }
+        }
+    </style>
+}
+
 <div style="background-color: #cccccc; min-height: 100%; display: flex; justify-content: center; align-items: center;">
-    <div class="col-md-4" style="background-color: white; width: 500px; padding: 20px 40px 20px 40px; border-radius: 20px; margin: 80px 0px 80px 0px">
+    <div id="cadastro-form" class="col-md-4" style="background-color: white; width: 500px; padding: 20px 40px 20px 40px; border-radius: 20px; margin: 80px 50px 80px 50px">
         <h1 style="text-align: center; font-size: 35px; margin-bottom: 30px; margin-top: 20px;">Cadastrar</h1>
         @if (ViewData["Message"] != null)
         {

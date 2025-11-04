@@ -4,11 +4,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section HeadStyles {
+    <style>
+        @@media (max-width: 600px) {
+            #form {
+                width: 430px !important;
+            }
+        }
+
+        @@media (max-width: 500px) {
+            #form {
+                width: 340px !important;
+            }
+        }
+
+        @@media (max-width: 380px) {
+            #form {
+                padding: 40px !important;
+                width: 280px !important;
+            }
+
+            h1{
+                font-size: 25px !important;
+            }
+
+            #text{
+                font-size: 16px !important;
+            }
+        }
+    </style>
+}
+
 <div class="d-flex flex-column h-100 justify-content-center align-items-center" style="background-color: #cccccc; overflow: hidden">
-    <div class="bg-white" style="border-radius: 20px; padding: 75px 40px 75px 40px; width: 500px; margin: 80px 0px 80px 0px">
+    <div id="form" class="bg-white" style="border-radius: 20px; padding: 75px 40px 75px 40px; width: 500px; margin: 80px 0px 80px 0px">
         <div class="d-flex flex-column justify-content-center h-100">
             <h1 class="text-center" style="margin-bottom: 20px; margin-top: 20px; font-size: 35px">Alteração de Senha</h1>
-            <p style="text-align: center; font-size: 18px; margin-bottom: 30px">Digite o email da sua conta para prosseguir</p>
+            <p id="text" style="text-align: center; font-size: 18px; margin-bottom: 30px">Digite o email da sua conta para prosseguir</p>
             <span style="text-align: center; margin-bottom: 10px" id="emailError" class="visually-hidden text-danger">Obrigatório informar o email!</span>
             <span style="text-align: center; margin-bottom: 10px" id="invalidError" class="visually-hidden text-danger">Email inválido!</span>
             <div class="col-md-4 w-100">
