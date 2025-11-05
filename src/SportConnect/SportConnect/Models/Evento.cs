@@ -24,6 +24,9 @@ namespace SportConnect.Models
         [Required(ErrorMessage = "O número do evento é obrigatório.")]
         public int Numero { get; set; }
 
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
+
 
     }
 }
