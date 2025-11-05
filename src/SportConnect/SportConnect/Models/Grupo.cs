@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SportConnect.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CriarGrupo.Models
@@ -32,6 +33,16 @@ namespace CriarGrupo.Models
 
         [Required(ErrorMessage = "Informe a cidade que será realizada a atividade")]
         public string Cidade { get; set; }
+
+        // 🔹 FK do usuário que criou o grupo (agora int?)
+        [Display(Name = "Criado por (Id do Usuário)")]
+        public int? UsuarioId { get; set; }   // tipo compatível com Usuario.Id (int)
+
+        // 🔹 Navegação (opcional)
+        [ForeignKey(nameof(UsuarioId))]
+        public Usuario? Usuario { get; set; }
+
+
 
     }
 }

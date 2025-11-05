@@ -47,17 +47,47 @@
 
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" list="lista-estados" />
-                <datalist id="lista-estados"></datalist>
+                <select asp-for="Estado" class="form-control" id="estado" onchange="getCidades()">
+                    <option value="" selected disabled hidden>Selecione um estado</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" list="lista-cidades" />
-                <datalist id="lista-cidades"></datalist>
+                <select asp-for="Cidade" class="form-control" id="cidade" disabled>
+                    <option value="" selected disabled hidden>Selecione uma cidade</option>
+                </select>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
+
 
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
@@ -83,79 +113,56 @@
     h1 {
         font-size: 30px;
         margin-top:30px;
+        margin-left: 50px;
     }
+
+    .col-md-4 {
+        margin-left: 50px;
+    }
+
+   
 </style>
-
-<script>
-    (function () {
-      const inputEstado = document.getElementById("Estado");
-      const inputCidade = document.getElementById("Cidade");
-      const dlEstados = document.getElementById("lista-estados");
-      const dlCidades = document.getElementById("lista-cidades");
-
-     
-      let mapaNomeParaId = {};
-
-      
-      fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-        .then(r => r.json())
-        .then(estados => {
-          
-          estados.sort((a, b) => a.nome.localeCompare(b.nome));
-
-          dlEstados.innerHTML = ""; 
-
-          estados.forEach(uf => {
-           
-            mapaNomeParaId[uf.nome] = uf.id;
-
-            const opt = document.createElement("option");
-            opt.value = uf.nome; 
-            dlEstados.appendChild(opt);
-          });
-
-         
-          if (inputEstado.value && mapaNomeParaId[inputEstado.value]) {
-            carregarCidades(inputEstado.value);
-          }
-        })
-        .catch(err => console.error("Erro ao carregar estados:", err));
-
-      
-      inputEstado.addEventListener("change", () => {
-        const nomeEstado = (inputEstado.value || "").trim();
-        inputCidade.value = "";
-        dlCidades.innerHTML = "";
-
-        if (!mapaNomeParaId[nomeEstado]) return;
-
-        carregarCidades(nomeEstado);
-      });
-
-      
-      function carregarCidades(nomeEstado) {
-        const idUf = mapaNomeParaId[nomeEstado];
-        if (!idUf) return;
-
-        const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${idUf}/municipios?orderBy=nome`;
-
-        fetch(url)
-          .then(r => r.json())
-          .then(municipios => {
-            dlCidades.innerHTML = "";
-            municipios.forEach(m => {
-              const opt = document.createElement("option");
-              opt.value = m.nome;
-              dlCidades.appendChild(opt);
-            });
-          })
-          .catch(err => console.error("Erro ao carregar cidades:", err));
-      }
-    })();
-</script>
-
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    const estado = document.getElementById("estado");
+    const cidade = document.getElementById("cidade");
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      estado.value = "";                 
+      cidade.innerHTML = '<option value="" selected disabled hidden>Selecione uma cidade</option>';
+      cidade.disabled = true;
+    });
+
+    
+    const getCidades = async () => {
+      if (!estado.value) {
+        cidade.innerHTML = '<option value="" selected disabled hidden>Selecione uma cidade</option>';
+        cidade.disabled = true;
+        return;
+      }
+
+      try {
+        const resp = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`);
+        const lista = await resp.json();
+
+        
+        let options = '<option value="" selected disabled hidden>Selecione uma cidade</option>';
+        lista.forEach(m => {
+          options += `<option value="${m.nome}">${m.nome}</option>`;
+        });
+
+        cidade.innerHTML = options;
+        cidade.disabled = false;
+      } catch (e) {
+        console.error("Erro ao carregar cidades do IBGE:", e);
+        cidade.innerHTML = '<option value="" selected disabled hidden>Não foi possível carregar</option>';
+        cidade.disabled = true;
+      }
+    };
+</script>

@@ -4,57 +4,58 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Informações do Grupo</h1>
 
-<div>
-    <h4>Grupo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NumeroMaximoParticipantes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NumeroMaximoParticipantes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ListaEspera)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ListaEspera)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modalidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modalidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-lg-4 col-md-8">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <p><strong>Nome:</strong> @Model.Nome</p>
+
+                <p class="mb-1"><strong>Descrição:</strong> @Model.Descricao</p>
+                <p class="mb-1"><strong>Máximo de Participantes:</strong> @Model.NumeroMaximoParticipantes</p>
+                <p class="mb-1"><strong>Adicionar lista de espera?:</strong> @(Model.ListaEspera ? "Sim" : "Não")</p>
+
+                <p class="mb-1"><strong>Modalidade:</strong> @Model.Modalidade</p>
+                <p class="mb-1"><strong>Estado:</strong> @Model.Estado</p>
+                <p class="mb-0"><strong>Cidade:</strong> @Model.Cidade</p>
+            </div>
+
+            <div class="card-footer bg-white border-0 d-flex justify-content-center gap-3">
+               
+                <a asp-action="Index" class="btn btn-danger btn-custom">Voltar</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<style>
+    h1 {
+        font-size: 30px;
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        border-radius: 12px;
+        overflow: hidden;
+        margin-left: 50px; 
+    }
+
+        .card p {
+            margin-bottom: 4px;
+        }
+
+    .btn-custom {
+        border-radius: 12px;
+        width: 130px; 
+        padding: 4px 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .gap-3 > * {
+        margin-right: .75rem;
+    }
+</style>
