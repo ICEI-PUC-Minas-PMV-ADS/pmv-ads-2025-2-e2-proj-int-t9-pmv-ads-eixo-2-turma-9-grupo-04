@@ -21,6 +21,51 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 | Usuário 4    |   75 seg    |   16      |     Sim     |  Nenhum   |     "Funcionou tudo como esperado"                        |                     | 
 | Usuário 5    | 150 seg    |    26      |   Sim   | Tentou avançar sem preencher todos os dados corretamente |   "Poderia mostrar melhor o que falta preencher"   |                     | 
 
+**Cenário 2**:  O usuário precisa realizar o login.     
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |        10 seg    |              3                   |     Sim            |       Nenhum                 |          "Consegui relizar o login sem problemas"   |                     |      
+| Usuário 2   |        13 seg    |             5                    |        Sim         |        Nenhum                |            "Não tive dificuldades para entrar"               |                     |      
+| Usuário 3   |        25 seg   |       10           |        Sim         |          Digitou errado os dados da conta   |  "Acabei errando alguma informação e a mensagem que apareceu não me falou o que era, poderiam ser mais claros"                 |                     |  
+| Usuário 4   |        9 seg    |              3                   |      Sim           |     Nenhum                   |         "Consegui preencher meus dados sem dificuldades"                   |                     | 
+| Usuário 5   |         17 seg  |              6                   |       Sim          |      Nenhum    |    "Demorei um pouquinho para digitar mas consegui fazer o login sem erros"     | 
+
+**Cenário 3**:  O usuário precisa alterar sua senha.     
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |        15 seg    |              6                   |     Sim            |       Nenhum                 |          "Consegui alterar minha senha e nada de errado aconteceu"   |                     |      
+| Usuário 2   |        18 seg    |             9                    |        Sim         |        Nenhum                |            "As instruções eram claras, me auxiliou no processo"               |                     |      
+| Usuário 3   |        30 seg   |       10           |        Sim         |          Digitou o campo de "Senha" e de "Confirmar Senha" com informações diferentes   |  "Digitei senhas diferentes mas depois apareceu uma mensagem me avisando, depois consegui visualizar o erro na opção de ver a senha"                 |                     |  
+| Usuário 4   |        17 seg    |              7                   |      Sim           |     Nenhum                   |         "A alteração foi feita sem nenhum problema"                   |                     | 
+| Usuário 5   |         23 seg  |              9                   |       Sim          |      Nenhum    |    "Alterei a senha sem problemas, as mensagens ensinando me ajudaram"     | 
+
+**Cenário 4**:  O usuário precisa visualizar seus dados.     
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |        5 seg    |              2                   |     Sim            |       Nenhum                 |          "Foi simples o processo"   |                     |      
+| Usuário 2   |        9 seg    |             3                    |        Sim         |        Não conseguiu achar de imediato onde os dados estavam                |            "Consegui ver meus dados, só que demorei um pouquinho para achar"               |                     |      
+| Usuário 3   |        14 seg   |       4           |        Sim         |          Não conseguiu achar de imediato onde os dados estavam   |  "Não sabia que para ver os dados eu tinha que clicar na minha foto, poderia ser mais intuitivo"                 |                     |  
+| Usuário 4   |       6 seg    |              2                   |      Sim           |     Nenhum                   |         "A visualização dos dados foi feita sem problemas"                   |                     | 
+| Usuário 5   |         12 seg  |              3                   |       Sim          |      Não conseguiu achar de imediato onde os dados estavam    |    "Poderia ser melhor explicado onde preciso clicar para ver minhas informações"     | 
+
+**Cenário 4**:  O usuário precisa editar seus dados.     
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |        28 seg    |              10                   |     Sim            |       Nenhum                 |          "Preenchi os campos sem dificuldades"   |                     |      
+| Usuário 2   |        55 seg    |             14                    |        Sim         |        Nenhum               |            "A edição dos meus dados ocorreu sem problemas"               |                     |      
+| Usuário 3   |        100 seg   |       24           |        Sim         |          Houve uma demora para achar a cidade desejada   |  "Fui procurar minha cidade e demorei para achar"                 |                     |  
+| Usuário 4   |       72 seg    |              18                   |      Sim           |     Nenhum                   |         "Consegui editar sem acontecer nenhum erro"                   |                     | 
+| Usuário 5   |         90 seg  |              20                   |       Sim          |      Nenhum    |    "O procedimento de edição foi simples"     | 
+
+**Cenário 5**:  O usuário precisa excluir sua conta.     
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |        5 seg    |              4                   |     Sim            |       Nenhum                 |          "Consegui excluir minha conta sem problemas"   |                     |      
+| Usuário 2   |        6 seg    |             4                    |        Sim         |        Nenhum               |            "A exclusão ocorreu sem acontecer nenhum erro"               |                     |      
+| Usuário 3   |        8 seg   |       5           |        Sim         |          Houve uma demora para achar a cidade desejada   |  "Achei a opção de excluir bem rápido"                 |                     |  
+| Usuário 4   |       6 seg    |              4                   |      Sim           |     Nenhum                   |         "O processo de excluir minha conta foi bem simples"                   |                     | 
+| Usuário 5   |        7 seg  |              5                   |       Sim          |      Nenhum    |    "Achei legal que aparece uma mensagem de confirmação antes de excluir"     | 
+
 **Cenário 2**:  O usuário precisa criar um grupo e preencher todos os requisitos.     
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
