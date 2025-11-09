@@ -66,7 +66,7 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 | Usuário 4   |       6 seg    |              4                   |      Sim           |     Nenhum                   |         "O processo de excluir minha conta foi bem simples"                   |                     | 
 | Usuário 5   |        7 seg  |              5                   |       Sim          |      Nenhum    |    "Achei legal que aparece uma mensagem de confirmação antes de excluir"     | 
 
-**Cenário 2**:  O usuário precisa criar um grupo e preencher todos os requisitos.     
+**Cenário 6**:  O usuário precisa criar um grupo e preencher todos os requisitos.     
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |        35 seg    |              9                   |     Sim            |       Nenhum                 |          "Consegui preencher os campos sem problemas"   |                     |      
