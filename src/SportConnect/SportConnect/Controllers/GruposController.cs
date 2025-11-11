@@ -1,15 +1,18 @@
 ﻿using CriarGrupo.Models;
-using Microsoft.AspNetCore.Authorization;         // 👈 para [Authorize]
+using Microsoft.AspNetCore.Authorization;        
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportConnect.Models;
-using System.Security.Claims;                     // 👈 para ler o ID do usuário do cookie
+using System.Security.Claims;                     
 
 namespace CriarGrupo.Controllers
 {
-    [Authorize] // opcional: se quiser exigir login em TODAS as actions deste controller
+    [Authorize] 
     public class GruposController : Controller
     {
+        private const string StatusInscrito = "Inscrito";
+        private const string StatusCancelado = "Cancelado";
+
         private readonly AppDbContext _context;
 
         public GruposController(AppDbContext context)
@@ -17,7 +20,7 @@ namespace CriarGrupo.Controllers
             _context = context;
         }
 
-        // helper: pega o ID (int) do usuário logado
+        
         private int? GetCurrentUserId()
         {
             var idClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -25,14 +28,78 @@ namespace CriarGrupo.Controllers
             return null;
         }
 
-        [AllowAnonymous] // listar pode ficar público se quiser
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            // 1) Carrega os grupos
             var dados = await _context.Grupos.AsNoTracking().ToListAsync();
+
+            // 2) Carrega "meus grupos" (em que o usuário está INSCRITO)
+            var idClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (int.TryParse(idClaim, out var uid))
+            {
+                var meus = await _context.Participacoes
+                    .Where(p => p.UsuarioId == uid && p.StatusParticipacao == StatusInscrito)
+                    .Select(p => p.GrupoId)
+                    .ToListAsync();
+
+                ViewBag.MeusGrupos = new HashSet<int>(meus);
+            }
+            else
+            {
+                ViewBag.MeusGrupos = new HashSet<int>();
+            }
+
+            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            // 2b) NOVO BLOCO: carrega "meus grupos em FILA" (Lista de Espera)
+            if (int.TryParse(idClaim, out uid))
+            {
+                var meusEmFila = await _context.Participacoes
+                    .Where(p => p.UsuarioId == uid && p.StatusParticipacao == "Lista de Espera")
+                    .Select(p => p.GrupoId)
+                    .ToListAsync();
+
+                ViewBag.MeusGruposFila = new HashSet<int>(meusEmFila);
+            }
+            else
+            {
+                ViewBag.MeusGruposFila = new HashSet<int>();
+            }
+            // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+            // 3) Quantidade de participantes ATIVOS (Status = "Inscrito") por grupo
+            var ativosPorGrupo = await _context.Participacoes
+                .Where(p => p.StatusParticipacao == StatusInscrito)
+                .GroupBy(p => p.GrupoId)
+                .Select(g => new { GrupoId = g.Key, Qtde = g.Count() })
+                .ToListAsync();
+
+            // Mapa: GrupoId -> Qtde de inscritos
+            var mapaQtde = ativosPorGrupo.ToDictionary(x => x.GrupoId, x => x.Qtde);
+
+            // Disponibiliza o mapa para a view (caso queira exibir contadores depois)
+            ViewBag.ParticipantesAtivos = mapaQtde;
+
+            // 4) Quais grupos estão LOTADOS (qtde >= NumeroMaximoParticipantes e limite > 0)
+            var gruposLotados = new HashSet<int>(
+                dados.Where(g =>
+                    g.NumeroMaximoParticipantes > 0
+                    && mapaQtde.TryGetValue(g.Id, out var q)
+                    && q >= g.NumeroMaximoParticipantes
+                )
+                .Select(g => g.Id)
+            );
+
+            ViewBag.GruposLotados = gruposLotados;
+
             return View(dados);
         }
 
-        [AllowAnonymous] // ou remova se quiser exigir login
+
+
+
+
+        [AllowAnonymous] 
         public IActionResult Create()
         {
             return View();
@@ -45,9 +112,9 @@ namespace CriarGrupo.Controllers
             if (!ModelState.IsValid) return View(grupo);
 
             var userId = GetCurrentUserId();
-            if (userId == null) return Challenge(); // força login se não houver cookie válido
+            if (userId == null) return Challenge(); 
 
-            // vincula o grupo ao criador
+            
             grupo.UsuarioId = userId;
 
             _context.Grupos.Add(grupo);
@@ -62,7 +129,7 @@ namespace CriarGrupo.Controllers
             var grupo = await _context.Grupos.FindAsync(id);
             if (grupo == null) return NotFound();
 
-            // só o dono pode editar
+            
             var userId = GetCurrentUserId();
             if (userId == null) return Challenge();
             if (grupo.UsuarioId != userId) return Forbid();
@@ -79,14 +146,14 @@ namespace CriarGrupo.Controllers
             var original = await _context.Grupos.FindAsync(id);
             if (original == null) return NotFound();
 
-            // checagem de dono novamente (segurança em profundidade)
+            
             var userId = GetCurrentUserId();
             if (userId == null) return Challenge();
             if (original.UsuarioId != userId) return Forbid();
 
             if (!ModelState.IsValid) return View(original);
 
-            // atualize apenas os campos editáveis
+           
             original.Nome = grupo.Nome;
             original.Descricao = grupo.Descricao;
             original.NumeroMaximoParticipantes = grupo.NumeroMaximoParticipantes;
@@ -99,7 +166,7 @@ namespace CriarGrupo.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [AllowAnonymous] // visualizar pode ser público
+        [AllowAnonymous] 
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -141,5 +208,171 @@ namespace CriarGrupo.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Participar(int id, bool? waitlist) // waitlist vem da View quando grupo está lotado
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Usuarios");
+
+            var uidStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(uidStr, out var uid))
+                return Forbid();
+
+            // 1) Verifica se o grupo existe
+            var grupo = await _context.Grupos.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+            if (grupo == null) return NotFound();
+
+            // 2) Calcula lotação atual (apenas "Inscrito")
+            var inscritos = await _context.Participacoes
+                .CountAsync(p => p.GrupoId == id && p.StatusParticipacao == StatusInscrito);
+
+            var temLimite = grupo.NumeroMaximoParticipantes > 0;
+            var lotado = temLimite && inscritos >= grupo.NumeroMaximoParticipantes;
+
+            // 3) Busca participação existente do usuário (pode reativar/alternar status)
+            var part = await _context.Participacoes
+                .FirstOrDefaultAsync(p => p.GrupoId == id && p.UsuarioId == uid);
+
+            // 4) Se está lotado...
+            if (lotado)
+            {
+                // ... e o grupo NÃO aceita lista de espera
+                if (!grupo.ListaEspera)
+                {
+                    TempData["ok"] = "Grupo lotado. Lista de espera não disponível.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // ... aceita lista de espera. Só entra na fila se a View pedir explicitamente
+                var querFila = waitlist == true;
+
+                if (!querFila)
+                {
+                    // veio sem a intenção de fila — só informa
+                    TempData["ok"] = "Grupo lotado. Você pode entrar na lista de espera.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // aqui: usuário quer entrar na lista de espera
+                if (part == null)
+                {
+                    part = new Participacao
+                    {
+                        GrupoId = id,
+                        UsuarioId = uid,
+                        StatusParticipacao = "Lista de Espera"
+                    };
+                    _context.Participacoes.Add(part);
+                    TempData["ok"] = "Você entrou na lista de espera.";
+                }
+                else
+                {
+                    // Se já existe, atualiza para fila
+                    if (part.StatusParticipacao != "Lista de Espera")
+                    {
+                        part.StatusParticipacao = "Lista de Espera";
+                        TempData["ok"] = "Você entrou na lista de espera.";
+                    }
+                    else
+                    {
+                        TempData["ok"] = "Você já está na lista de espera.";
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            // 5) Não está lotado => INSCRITO
+            if (part == null)
+            {
+                part = new Participacao
+                {
+                    GrupoId = id,
+                    UsuarioId = uid,
+                    StatusParticipacao = StatusInscrito
+                };
+                _context.Participacoes.Add(part);
+                TempData["ok"] = "Inscrição realizada!";
+            }
+            else
+            {
+                if (part.StatusParticipacao != StatusInscrito)
+                {
+                    part.StatusParticipacao = StatusInscrito; // reativa ou tira da fila
+                    TempData["ok"] = "Inscrição realizada!";
+                }
+                else
+                {
+                    TempData["ok"] = "Você já está inscrito neste grupo.";
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Sair(int id) // id = GrupoId
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Usuarios");
+
+            var uidStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(uidStr, out var uid))
+                return Forbid();
+
+            // procura uma participação ATIVA (Inscrito) do usuário nesse grupo
+            var part = await _context.Participacoes
+                .FirstOrDefaultAsync(p => p.GrupoId == id
+                                       && p.UsuarioId == uid
+                                       && p.StatusParticipacao == StatusInscrito);
+
+            if (part != null)
+            {
+                // Soft delete: apenas muda o status
+                part.StatusParticipacao = StatusCancelado;
+                await _context.SaveChangesAsync();
+                TempData["ok"] = "Você saiu do grupo.";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SairDaFila(int id) // id = GrupoId
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Usuarios");
+
+            var uidStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(uidStr, out var uid))
+                return Forbid();
+
+            // procura uma participação em lista de espera
+            var part = await _context.Participacoes
+                .FirstOrDefaultAsync(p => p.GrupoId == id
+                                       && p.UsuarioId == uid
+                                       && p.StatusParticipacao == "Lista de Espera");
+
+            if (part != null)
+            {
+                // Soft delete: apenas muda o status
+                part.StatusParticipacao = StatusCancelado;
+                await _context.SaveChangesAsync();
+                TempData["ok"] = "Você saiu da lista de espera.";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
     }
 }

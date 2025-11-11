@@ -2,7 +2,6 @@
 
 @using System.Security.Claims
 @{
-   
     int uid;
     bool logged = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out uid);
 }
@@ -17,18 +16,27 @@
 
 <h1>Grupos</h1>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+<p class= "observacao">
+    Observação: se o grupo já estiver com todas as vagas preenchidas, mas você ainda quiser participar, clique no botão "Entrar na lista de espera". Assim, você será incluído na fila de espera e será convocado automaticamente quando uma nova vaga ficar disponível.
+</p>
+
+@if (TempData["ok"] != null)
+{
+    <script>
+        // Renderiza como string JS segura (mantém acentos corretos)
+        alert(@Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ok"])));
+    </script>
+}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
     @foreach (var item in Model)
     {
         <div class="col">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
                     <p><strong>Nome:</strong> @item.Nome</p>
-                    <p class="mb-1"><strong>Descrição:</strong> @item.Descricao</p>
-                    <p class="mb-1"><strong>Máximo de Participantes:</strong> @item.NumeroMaximoParticipantes</p>
-                    <p class="mb-1">
-                        <strong>Adicionar lista de espera?:</strong> @(item.ListaEspera ? "Sim" : "Não")
-                    </p>
+                    
                     <p class="mb-1"><strong>Modalidade:</strong> @item.Modalidade</p>
                     <p class="mb-1"><strong>Estado:</strong> @item.Estado</p>
                     <p class="mb-0"><strong>Cidade:</strong> @item.Cidade</p>
@@ -36,8 +44,9 @@
 
                 <div class="card-footer bg-white border-0 d-flex justify-content-center gap-3">
                     @{
-                        
                         var ehDono = logged && item.UsuarioId.HasValue && item.UsuarioId.Value == uid;
+                        var meusGrupos = ViewBag.MeusGrupos as HashSet<int>;
+                        var jaParticipa = meusGrupos != null && meusGrupos.Contains(item.Id);
                     }
 
                     @if (ehDono)
@@ -49,46 +58,83 @@
                     else
                     {
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-custom">Visualizar</a>
-                        <button type="button" class="btn btn-primary btn-custom btn-participar" data-id="@item.Id">Participar</button>
+
+                        var gruposLotados = ViewBag.GruposLotados as HashSet<int>;
+                        var lotado = gruposLotados != null && gruposLotados.Contains(item.Id);
+
+                        @if (jaParticipa)
+                        {
+                            @* ✅ Usuário já inscrito: mostra "Participando" (verde), Visualizar e Sair *@
+                            <button type="button" class="btn btn-success btn-custom" disabled>Participando</button>
+
+                            <form asp-action="Sair" asp-route-id="@item.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-custom">Sair do grupo</button>
+                            </form>
+                        }
+                        else if (lotado)
+                        {
+                            @* Grupo lotado *@
+                            @if (item.ListaEspera)
+                            {
+                                var meusGruposFila = ViewBag.MeusGruposFila as HashSet<int>;
+                                var estaNaFila = meusGruposFila != null && meusGruposFila.Contains(item.Id);
+
+                                if (estaNaFila)
+                                {
+                                    @* ✅ Já está na fila: mostra botão para sair *@
+                                    <form asp-action="SairDaFila" asp-route-id="@item.Id" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-custom">Sair da lista de espera</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    @* 🔸 Ainda não está na fila: pode entrar *@
+                                    <form asp-action="Participar" asp-route-id="@item.Id" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="waitlist" value="true" />
+                                        <button type="submit" class="btn btn-warning btn-custom">Entrar na lista de espera</button>
+                                    </form>
+                                }
+                            }
+                            else
+                            {
+                                @* Lotado e sem fila *@
+                                <button type="button" class="btn btn-secondary btn-custom" disabled>Grupo lotado</button>
+                            }
+                        }
+
+                        else
+                        {
+                            @* Ainda há vagas: participar normalmente *@
+                            <form asp-action="Participar" asp-route-id="@item.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-primary btn-custom">Participar</button>
+                            </form>
+                        }
                     }
+
+
                 </div>
             </div>
         </div>
     }
+    </div>
 </div>
-
-@section Scripts {
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const botoes = document.querySelectorAll(".btn-participar");
-
-            botoes.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    
-                    alert("Inscrição realizada!");
-
-                    
-                    btn.classList.remove("btn-primary");
-                    btn.classList.add("btn-success");
-
-                    
-                    btn.textContent = "Participando";
-
-                    
-                    btn.disabled = true;
-                });
-            });
-        });
-    </script>
-}
 
 <style>
     .btn-custom {
         border-radius: 12px;
-        width: 130px;
-        padding: 4px 0;
+        min-width: 130px; 
+        height: 30px; 
+        padding: 6px 12px;
         font-size: 0.9rem;
         font-weight: 500;
+        text-align: center;
+        display: inline-flex; 
+        align-items: center;
+        justify-content: center;
     }
 
     .btn-primary {
@@ -108,24 +154,31 @@
         color: #fff;
     }
 
+    .btn-custom:disabled {
+        opacity: 1; 
+        cursor: default;
+    }
+
     .card {
         border-radius: 12px;
         overflow: hidden;
-        margin-left: 40px;
+        width: 100%; /* ocupa toda a largura da coluna */
+        margin: 0; /* remove margens laterais manuais */
     }
 
-        .card p {
+    .card p {
             margin-bottom: 4px;
         }
 
     h1 {
         font-size: 28px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         margin-left: 40px;
     }
 
     p {
         margin-bottom: 20px;
+       
     }
 
     .btn-criar {
@@ -133,5 +186,32 @@
         border-color: #000;
         margin-top: 20px;
         margin-left: 40px;
+    }
+
+    .observacao {
+        margin-left: 40px;
+        margin-bottom: 30px;
+        margin-right: 40px;
+    }
+
+    /* Permite quebrar linha se faltar espaço */
+    .card-footer {
+        flex-wrap: wrap;
+    }
+
+    /* Em telas pequenas (≤ 576px): empilha e deixa os botões com largura cheia */
+    @@media (max-width: 576px) {
+        .card-footer
+
+    {
+        flex-direction: column;
+        align-items: stretch; /* os botões ocupam toda a largura do card */
+        gap: 8px; /* espaço vertical entre eles */
+    }
+
+    .card-footer .btn {
+        width: 100%;
+    }
+
     }
 </style>
