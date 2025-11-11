@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportConnect.Models;
 
@@ -11,9 +12,11 @@ using SportConnect.Models;
 namespace SportConnect.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251104014508_AddLatLongToEvento")]
+    partial class AddLatLongToEvento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,12 +59,7 @@ namespace SportConnect.Migrations
                     b.Property<int>("NumeroMaximoParticipantes")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Grupos");
                 });
@@ -104,30 +102,6 @@ namespace SportConnect.Migrations
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("SportConnect.Models.Participacao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("GrupoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StatusParticipacao")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Participacoes");
-                });
-
             modelBuilder.Entity("SportConnect.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -166,15 +140,6 @@ namespace SportConnect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("CriarGrupo.Models.Grupo", b =>
-                {
-                    b.HasOne("SportConnect.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }

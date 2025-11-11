@@ -1,59 +1,68 @@
 ﻿@model IEnumerable<SportConnect.Models.Evento>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Eventos";
 }
 
-<h1>Index</h1>
+<!-- Importando Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-sA+e2atfP2Q8wPpo52M0zH8R4tjoP06jC5iG1F2P/dk="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-SmSRN8E+9DymGugWZ9BdU7ePPRpEoU3S2qvR2hZ6k8M="
+        crossorigin=""></script>
+
+<h1 class="mb-4">Eventos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary mb-3">Criar Novo Evento</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rua)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
 
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    <p class="card-text">@item.Descricao</p>
+                    <p class="text-muted">
+                        📍 @item.Rua, @item.Numero - @item.Bairro
+                    </p>
+                    <div id="map-@item.Id" style="height: 200px; border-radius: 10px;"></div>
+
+                    <div class="mt-3 d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        @foreach (var item in Model)
+        {
+                if (item.Latitude.HasValue && item.Longitude.HasValue)
+                {
+                        <text>
+                            var map@item.Id = L.map('map-@item.Id').setView([@item.Latitude, @item.Longitude], 15);
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '© OpenStreetMap contributors'
+                            }).addTo(map@item.Id);
+                            L.marker([@item.Latitude, @item.Longitude]).addTo(map@item.Id)
+                                .bindPopup('@item.Nome');
+                        </text>
+                }
+                else
+                {
+                        <text>
+                            document.getElementById('map-@item.Id').innerHTML =
+                                "<div style='text-align:center;padding-top:80px;color:gray;'>Sem localização</div>";
+                        </text>
+                }
+        }
+    });
+</script>

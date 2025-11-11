@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportConnect.Models;
+using System.Text.Json;
 
 namespace SportConnect.Controllers
 {
@@ -107,6 +108,31 @@ namespace SportConnect.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        private async Task<(double lat, double lng)> GetCoordinatesFromOpenCage(string address)
+        {
+            string apiKey = "d22bff7a5feb475e9bc22789f51e6a89";
+            string url = $"https://api.opencagedata.com/geocode/v1/json?q={Uri.EscapeDataString(address)}&key={apiKey}&language=pt&countrycode=br&limit=1";
+
+            using var client = new HttpClient();
+            var response = await client.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+                return (0, 0);
+
+            var json = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(json);
+
+            var results = doc.RootElement.GetProperty("results");
+            if (results.GetArrayLength() == 0)
+                return (0, 0);
+
+            var geometry = results[0].GetProperty("geometry");
+            double lat = geometry.GetProperty("lat").GetDouble();
+            double lng = geometry.GetProperty("lng").GetDouble();
+
+            return (lat, lng);
         }
     }
 }
