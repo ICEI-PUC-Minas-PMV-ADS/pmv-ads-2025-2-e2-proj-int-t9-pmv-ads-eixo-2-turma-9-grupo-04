@@ -45,17 +45,21 @@
         document.addEventListener("DOMContentLoaded", function () {
             console.log("Inicializando mapas Leaflet...");
 
+
             @foreach (var item in Model)
             {
                 if (item.Latitude.HasValue && item.Longitude.HasValue)
                 {
-                    var latStr = item.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                         Console.WriteLine(item);
+                            var latStr = item.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     var lngStr = item.Longitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
 
-                    <text>
+                string latitude = latStr.Insert(3, ".");
+                        string longitude = lngStr.Insert(3, ".");
+                <text>
                         try {
-                            var lat_@item.Id = parseFloat("@latStr");
-                            var lng_@item.Id = parseFloat("@lngStr");
+                            var lat_@item.Id = parseFloat("@latitude");
+                            var lng_@item.Id = parseFloat("@longitude");
                             console.log("Evento '@item.Nome' - Lat:", lat_@item.Id, "Lng:", lng_@item.Id);
 
                             var map_@item.Id = L.map('map-@item.Id').setView([lat_@item.Id, lng_@item.Id], 15);

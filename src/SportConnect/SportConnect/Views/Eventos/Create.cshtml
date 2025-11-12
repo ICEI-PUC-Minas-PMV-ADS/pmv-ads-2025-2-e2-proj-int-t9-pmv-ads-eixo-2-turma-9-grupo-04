@@ -21,7 +21,11 @@
         <input asp-for="Descricao" class="form-control" />
         <span asp-validation-for="Descricao" class="text-danger"></span>
     </div>
-
+    <div class="form-group">
+        <label asp-for="Cidade"></label>
+        <input asp-for="Cidade" class="form-control" id="cidade" />
+        <span asp-validation-for="Cidade" class="text-danger"></span>
+    </div>
     <div class="form-group">
         <label asp-for="Bairro"></label>
         <input asp-for="Bairro" class="form-control" id="bairro" />
@@ -65,13 +69,15 @@
             const rua = document.getElementById("rua").value;
             const numero = document.getElementById("numero").value;
             const bairro = document.getElementById("bairro").value;
+            const cidade = document.getElementById("cidade").value;
 
-            if (rua && numero && bairro) {
-                const endereco = `${rua}, ${numero}, ${bairro},Governador Valadares, Brasil`;
+            if (rua && numero && bairro && cidade) {
+                const endereco = `${rua}, ${numero}, ${bairro},${cidade},MG, Brasil`;
                 const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco)}&key=d22bff7a5feb475e9bc22789f51e6a89`;
 
                 const response = await fetch(url);
                 const data = await response.json();
+                
 
                 if (data.results && data.results.length > 0) {
                     const lat = data.results[0].geometry.lat;
